@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda | Paula & Pablo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <p>¡Nos casamos!</p>
+        <h1 class="script-font">Paula & Pablo</h1>
+        <p>20 de Octubre de 2024 • Madrid</p>
+        <a href="#rsvp" class="cta-button">Confirmar Asistencia</a>
+    </header>
+
+    <section id="photos">
+        <h2 class="section-title script-font">Nuestros Momentos</h2>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=800&q=80" alt="Pareja">
+            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=80" alt="Anillo">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Boda">
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title script-font">El Gran Día</h2>
+        <p>Estamos muy felices de compartir este día con vosotros.</p>
+        <br>
+        <p><strong>Lugar:</strong> Finca Los Rosales</p>
+        <p><strong>Hora:</strong> 18:00 hrs</p>
+    </section>
+
+    <section id="rsvp">
+        <div class="rsvp-section">
+            <h2 class="section-title script-font">Confirmación</h2>
+            <p style="margin-bottom: 20px;">Por favor, confirma tu asistencia antes del 1 de Septiembre.</p>
+            
+            <form id="weddingForm">
+                <label for="name">Nombre completo</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre y apellidos" required>
+
+                <label for="guests">Número de acompañantes</label>
+                <select id="guests" name="guests">
+                    <option value="0">Solo yo</option>
+                    <option value="1">+1 Acompañante</option>
+                    <option value="2">+2 Acompañantes</option>
+                    <option value="familia">Familia completa</option>
+                </select>
+
+                <label for="status">¿Asistirás?</label>
+                <select id="status" name="status" required>
+                    <option value="si">¡Sí, allí estaré!</option>
+                    <option value="no">Lamentablemente no podré</option>
+                </select>
+                
+                <label for="message">Mensaje / Alergias / Canción sugerida</label>
+                <textarea id="message" name="message" rows="4" placeholder="Cuéntanos si tienes alguna alergia alimentaria..."></textarea>
+
+                <button type="submit">Enviar Confirmación</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>Con amor, Paula & Pablo</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Esperamos verte allí</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
