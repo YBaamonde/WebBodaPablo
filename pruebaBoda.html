@@ -45,38 +45,44 @@
             <h2 class="script-font">Confirmación de Asistencia</h2>
             <p>Por favor, confirma antes del 20 de junio de 2026</p>
 
-            <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+            <form action="https://formspree.io/f/xqeyapyj" method="POST">
 
                 <label for="name">Nombre y Apellidos</label>
-                <input type="text" name="Invitado" id="name" required placeholder="Tu nombre completo">
+                <input type="text" name="Invitado" id="name" required pattern="^[a-zA-ZÀ-ÿ\s]{3,60}$"
+                    title="Por favor, introduce solo letras (mínimo 3)" placeholder="Tu nombre completo">
 
-                <label>¿Podrás acompañarnos?</label>
-                <select name="Asistencia" required>
+                <label for="attendance">¿Podrás acompañarnos?</label>
+                <select name="Asistencia" id="attendance" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
                     <option value="Confirmado">¡Sí, allí estaré!</option>
                     <option value="No_Asiste">Lamentablemente no puedo</option>
                 </select>
 
-                <label for="plus-one">¿Vienes con acompañante o niños?</label>
-                <input type="text" name="Acompañantes" id="plus-one" placeholder="Nombre de tu pareja/hijos">
+                <label for="plus-one">¿Cuántos acompañantes traes? (Sin contarte a ti)</label>
+                <input type="number" name="Acompañantes" id="plus-one" min="0" max="15" value="0" step="1"
+                    onkeydown="return false" style="caret-color: transparent;">
+                <small style="display:block; margin-bottom:15px; color:#777;">Usa las flechas para indicar el
+                    número.</small>
 
-                <label for="diet">¿Alguna alergia o menú especial?</label>
-                <select name="Tipo_Menu" id="diet">
+                <label for="diet">Preferencia de menú</label>
+                <select name="Tipo_Menu" id="diet" required>
                     <option value="Estandar">Menú Estándar</option>
                     <option value="Vegetariano">Menú Vegetariano</option>
                     <option value="Vegano">Menú Vegano</option>
                     <option value="Infantil">Menú Infantil</option>
                 </select>
 
-                <textarea name="Alergias_Detalle" rows="2"
-                    placeholder="Detalla aquí tus alergias o intolerancias..."></textarea>
+                <label for="alergias">Alergias o notas importantes</label>
+                <textarea name="Alergias_Detalle" id="alergias" rows="2" maxlength="200"
+                    placeholder="Indica aquí si hay algo que debamos saber..."></textarea>
 
                 <label>¿Necesitas plaza de autobús?</label>
                 <div class="radio-group">
-                    <label><input type="radio" name="Bus" value="No" checked> No, voy por mi cuenta</label><br>
-                    <label><input type="radio" name="Bus" value="Si"> Sí, necesito plaza</label>
+                    <label><input type="radio" name="Bus" value="No" checked> No, gracias</label><br>
+                    <label><input type="radio" name="Bus" value="Si"> Sí, la necesito</label>
                 </div>
 
-                <button type="submit" class="cta-button">Enviar mi respuesta</button>
+                <button type="submit" class="cta-button">Enviar Confirmación</button>
 
             </form>
         </div>
