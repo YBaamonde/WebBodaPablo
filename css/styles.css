@@ -448,6 +448,65 @@ address {
     }
 }
 
+/* --- ESTILOS NUESTRA HISTORIA --- */
+.story-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 80px;
+    text-align: left;
+}
+
+.story-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.story-img {
+    flex: 1;
+}
+
+.story-img img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease;
+}
+
+.story-img img:hover {
+    transform: scale(1.03) rotate(1deg);
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-text h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.story-text p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* --- AJUSTES PARA MÓVIL --- */
+@media (max-width: 768px) {
+
+    .story-item,
+    .story-item.reverse {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .story-img img {
+        height: 300px;
+    }
+}
+
 /* --- PIE DE PÁGINA (FOOTER) --- */
 footer {
     background-color: var(--footer-bg);
