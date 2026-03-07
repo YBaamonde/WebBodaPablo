@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda | Paula & Pablo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
     <header>
@@ -20,9 +23,12 @@
     <section id="photos">
         <h2 class="section-title script-font">Nuestros Momentos</h2>
         <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=800&q=80" alt="Pareja">
-            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=80" alt="Anillo">
-            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Boda">
+            <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=800&q=80"
+                alt="Pareja">
+            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=80"
+                alt="Anillo">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80"
+                alt="Boda">
         </div>
     </section>
 
@@ -35,33 +41,76 @@
     </section>
 
     <section id="rsvp">
-        <div class="rsvp-section">
-            <h2 class="section-title script-font">Confirmación</h2>
-            <p style="margin-bottom: 20px;">Por favor, confirma tu asistencia antes del 1 de Septiembre.</p>
-            
-            <form id="weddingForm">
-                <label for="name">Nombre completo</label>
-                <input type="text" id="name" name="name" placeholder="Tu nombre y apellidos" required>
+        <div class="rsvp-container">
+            <h2 class="script-font">Confirmación de Asistencia</h2>
+            <p>Por favor, confirma antes del 20 de junio de 2026</p>
 
-                <label for="guests">Número de acompañantes</label>
-                <select id="guests" name="guests">
-                    <option value="0">Solo yo</option>
-                    <option value="1">+1 Acompañante</option>
-                    <option value="2">+2 Acompañantes</option>
-                    <option value="familia">Familia completa</option>
+            <form action="https://formspree.io/f/xqeyapyj" method="POST">
+
+                <label for="name">Nombre y Apellidos</label>
+                <input type="text" name="Invitado" id="name" required pattern="^[a-zA-ZÀ-ÿ\s]{3,60}$"
+                    title="Por favor, introduce solo letras (mínimo 3)" placeholder="Tu nombre completo">
+
+                <label for="attendance">¿Podrás acompañarnos?</label>
+                <select name="Asistencia" id="attendance" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Confirmado">¡Sí, allí estaré!</option>
+                    <option value="No_Asiste">Lamentablemente no puedo</option>
                 </select>
 
-                <label for="status">¿Asistirás?</label>
-                <select id="status" name="status" required>
-                    <option value="si">¡Sí, allí estaré!</option>
-                    <option value="no">Lamentablemente no podré</option>
-                </select>
-                
-                <label for="message">Mensaje / Alergias / Canción sugerida</label>
-                <textarea id="message" name="message" rows="4" placeholder="Cuéntanos si tienes alguna alergia alimentaria..."></textarea>
+                <label for="plus-one">¿Cuántos acompañantes traes? (Sin contarte a ti)</label>
+                <input type="number" name="Acompañantes" id="plus-one" min="0" max="15" value="0" step="1"
+                    onkeydown="return false" style="caret-color: transparent;">
+                <small style="display:block; margin-bottom:15px; color:#777;">Usa las flechas para indicar el
+                    número.</small>
 
-                <button type="submit">Enviar Confirmación</button>
+                <label for="diet">Preferencia de menú</label>
+                <select name="Tipo_Menu" id="diet" required>
+                    <option value="Estandar">Menú Estándar</option>
+                    <option value="Vegetariano">Menú Vegetariano</option>
+                    <option value="Vegano">Menú Vegano</option>
+                    <option value="Infantil">Menú Infantil</option>
+                </select>
+
+                <label for="alergias">Alergias o notas importantes</label>
+                <textarea name="Alergias_Detalle" id="alergias" rows="2" maxlength="200"
+                    placeholder="Indica aquí si hay algo que debamos saber..."></textarea>
+
+                <label>¿Necesitas plaza de autobús?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Bus" value="No" checked> No, gracias</label><br>
+                    <label><input type="radio" name="Bus" value="Si"> Sí, la necesito</label>
+                </div>
+
+                <button type="submit" class="cta-button">Enviar Confirmación</button>
+
             </form>
+        </div>
+    </section>
+
+    <section id="donde" class="section-container">
+        <h2 class="script-font">Lugar y Hora</h2>
+        <div class="info-logistica">
+            <p><strong>Ceremonia y Banquete:</strong> 13:00h</p>
+            <p>📍 <strong>Penas Corbeiras</strong></p>
+            <address>
+                Paseo do Conde, 2<br>
+                27800, Vilalba, Lugo<br>
+            </address>
+        </div>
+
+        <div style="margin: 25px 0;">
+            <a href="https://maps.app.goo.gl/NVurG2VGAjMiSwHY8" target="_blank" class="cta-button">
+                Ver en Google Maps
+            </a>
+        </div>
+
+        <div class="map-responsive">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d373.65437384258655!2d-7.6841464997568965!3d43.29046403201713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDPCsDE3JzI2LjIiTiA3wrA0MScwMy4wIlc!5e0!3m2!1ses!2ses!4v1772919118847!5m2!1ses!2ses"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </section>
 
@@ -72,4 +121,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
