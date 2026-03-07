@@ -41,42 +41,70 @@
     </section>
 
     <section id="rsvp">
-        <div class="rsvp-section">
-            <h2 class="section-title script-font">Confirmación</h2>
-            <p style="margin-bottom: 20px;">Por favor, confirma tu asistencia antes del 1 de Septiembre.</p>
+        <div class="rsvp-container">
+            <h2 class="script-font">Confirmación de Asistencia</h2>
+            <p>Por favor, confirma antes del 20 de junio de 2026</p>
 
-            <form id="weddingForm" action="https://formspree.io/f/xqeyapyj" method="POST">
-                <label for="full-name">Nombre y Apellidos</label>
-                <input type="text" name="name" id="full-name" placeholder="Ej: María García" required>
+            <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+
+                <label for="name">Nombre y Apellidos</label>
+                <input type="text" name="Invitado" id="name" required placeholder="Tu nombre completo">
 
                 <label>¿Podrás acompañarnos?</label>
-                <div class="radio-group">
-                    <input type="radio" name="asiste" value="Si" id="asiste-si" checked>
-                    <label for="asiste-si">¡Sí, allí estaré!</label>
-
-                    <input type="radio" name="asiste" value="No" id="asiste-no">
-                    <label for="asiste-no">Lamentablemente no</label>
-                </div>
-
-                <label for="companions">¿Vienes acompañado? (Indica cuántos)</label>
-                <input type="number" name="acompañantes" id="companions" min="0" value="0">
-
-                <label for="diet">Restricciones alimentarias (Alergias, Vegano, etc.)</label>
-                <textarea name="dieta" id="diet" rows="2"
-                    placeholder="Ej: Celíaco, alérgico a los frutos secos..."></textarea>
-
-                <label>¿Necesitas plaza en el autobús?</label>
-                <select name="autobus">
-                    <option value="no">No, iré por mi cuenta</option>
-                    <option value="si-ida-vuelta">Sí, ida y vuelta</option>
-                    <option value="si-solo-vuelta">Sólo vuelta</option>
+                <select name="Asistencia" required>
+                    <option value="Confirmado">¡Sí, allí estaré!</option>
+                    <option value="No_Asiste">Lamentablemente no puedo</option>
                 </select>
 
-                <label for="song">¿Qué canción no puede faltar en la fiesta?</label>
-                <input type="text" name="cancion-sugerida" id="song" placeholder="Artista - Título">
+                <label for="plus-one">¿Vienes con acompañante o niños?</label>
+                <input type="text" name="Acompañantes" id="plus-one" placeholder="Nombre de tu pareja/hijos">
 
-                <button type="submit">Confirmar mi asistencia</button>
+                <label for="diet">¿Alguna alergia o menú especial?</label>
+                <select name="Tipo_Menu" id="diet">
+                    <option value="Estandar">Menú Estándar</option>
+                    <option value="Vegetariano">Menú Vegetariano</option>
+                    <option value="Vegano">Menú Vegano</option>
+                    <option value="Infantil">Menú Infantil</option>
+                </select>
+
+                <textarea name="Alergias_Detalle" rows="2"
+                    placeholder="Detalla aquí tus alergias o intolerancias..."></textarea>
+
+                <label>¿Necesitas plaza de autobús?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Bus" value="No" checked> No, voy por mi cuenta</label><br>
+                    <label><input type="radio" name="Bus" value="Si"> Sí, necesito plaza</label>
+                </div>
+
+                <button type="submit" class="cta-button">Enviar mi respuesta</button>
+
             </form>
+        </div>
+    </section>
+
+    <section id="donde" class="section-container">
+        <h2 class="script-font">Lugar y Hora</h2>
+        <div class="info-logistica">
+            <p><strong>Ceremonia y Banquete:</strong> 13:00h</p>
+            <p>📍 <strong>Penas Corbeiras</strong></p>
+            <address>
+                Paseo do Conde, 2<br>
+                27800, Vilalba, Lugo<br>
+            </address>
+        </div>
+
+        <div style="margin: 25px 0;">
+            <a href="https://maps.app.goo.gl/NVurG2VGAjMiSwHY8" target="_blank" class="cta-button">
+                Ver en Google Maps
+            </a>
+        </div>
+
+        <div class="map-responsive">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d373.65437384258655!2d-7.6841464997568965!3d43.29046403201713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDPCsDE3JzI2LjIiTiA3wrA0MScwMy4wIlc!5e0!3m2!1ses!2ses!4v1772919118847!5m2!1ses!2ses"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </section>
 
