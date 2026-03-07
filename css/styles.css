@@ -60,6 +60,17 @@ h1, h2, h3 { color: var(--primary-color); }
     color: white;
 }
 
+/* --- ESCALA TIPOGRÁFICA RESPONSIVE --- */
+h1 { font-size: clamp(2.5rem, 8vw, 5rem); } /* Se ajusta entre 2.5 y 5 rem */
+h2 { font-size: clamp(2rem, 6vw, 3rem); }
+.section-title { font-size: clamp(1.8rem, 5vw, 3rem); }
+
+/* Ajuste del Header para que no tape el contenido en móviles cortos */
+header {
+    min-height: 100vh; /* Cambiamos height por min-height */
+    padding: 60px 20px;
+}
+
 /* ==========================================================================
    3. COMPONENTES GLOBALES (Botones, Animaciones, Toggles)
    ========================================================================== */
@@ -196,34 +207,54 @@ header p {
 }
 .gallery-grid img:hover { transform: scale(1.02); }
 
-/* --- CUENTA ATRÁS --- */
+/* --- CONTADOR RESPONSIVE OPTIMIZADO --- */
 #countdown {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+    flex-wrap: wrap; /* Permite que los cuadros bajen si no caben */
+    gap: 15px;
+    margin-top: 30px;
 }
+
 .countdown-item {
     text-align: center;
     background: var(--card-bg);
-    padding: 15px;
-    border-radius: 8px;
-    min-width: 80px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    padding: 20px 10px;
+    border-radius: 12px;
+    flex: 1; /* Hace que todos los cuadros midan lo mismo */
+    min-width: 80px; /* Tamaño mínimo para no verse ridículo */
+    max-width: 120px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
+
 .countdown-item span {
     display: block;
-    font-size: 2rem;
+    font-size: 2.5rem; /* Tamaño grande en PC */
     font-weight: bold;
     color: var(--accent-color);
+    line-height: 1;
 }
+
 .countdown-item p {
-    margin: 0;
-    font-size: 0.9rem;
+    margin-top: 5px;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    color: var(--text-color);
-    opacity: 0.8;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+/* Ajuste específico para móviles muy pequeños */
+@media (max-width: 480px) {
+    #countdown {
+        gap: 10px;
+    }
+    .countdown-item {
+        min-width: 70px;
+        padding: 15px 5px;
+    }
+    .countdown-item span {
+        font-size: 1.8rem; /* Reducimos el número para que no desborde */
+    }
 }
 
 /* --- LOGÍSTICA (Mapa e Info Útil) --- */
