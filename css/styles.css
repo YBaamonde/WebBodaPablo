@@ -507,6 +507,70 @@ address {
     }
 }
 
+/* --- ESTILOS SPOTIFY --- */
+.spotify-card {
+    background: linear-gradient(135deg, #1db954 0%, #191414 100%);
+    color: white;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(29, 185, 84, 0.2);
+    max-width: 800px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.spotify-card:hover {
+    transform: scale(1.01);
+}
+
+.spotify-card h2 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.spotify-card p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.spotify-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.spotify-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #1db954;
+    color: white;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.spotify-button:hover {
+    background-color: white;
+    color: #191414;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.spotify-button svg {
+    transition: fill 0.3s ease;
+}
+
+/* Ajuste para que el modo oscuro no oculte la tarjeta de Spotify */
+[data-theme="dark"] .spotify-card {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
 /* --- PIE DE PÁGINA (FOOTER) --- */
 footer {
     background-color: var(--footer-bg);
