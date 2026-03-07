@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda | Paula & Pablo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
     <header>
@@ -20,9 +23,12 @@
     <section id="photos">
         <h2 class="section-title script-font">Nuestros Momentos</h2>
         <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=800&q=80" alt="Pareja">
-            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=80" alt="Anillo">
-            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Boda">
+            <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=800&q=80"
+                alt="Pareja">
+            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=80"
+                alt="Anillo">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80"
+                alt="Boda">
         </div>
     </section>
 
@@ -38,29 +44,38 @@
         <div class="rsvp-section">
             <h2 class="section-title script-font">Confirmación</h2>
             <p style="margin-bottom: 20px;">Por favor, confirma tu asistencia antes del 1 de Septiembre.</p>
-            
-            <form id="weddingForm">
-                <label for="name">Nombre completo</label>
-                <input type="text" id="name" name="name" placeholder="Tu nombre y apellidos" required>
 
-                <label for="guests">Número de acompañantes</label>
-                <select id="guests" name="guests">
-                    <option value="0">Solo yo</option>
-                    <option value="1">+1 Acompañante</option>
-                    <option value="2">+2 Acompañantes</option>
-                    <option value="familia">Familia completa</option>
+            <form id="weddingForm" action="https://formspree.io/f/xqeyapyj" method="POST">
+                <label for="full-name">Nombre y Apellidos</label>
+                <input type="text" name="name" id="full-name" placeholder="Ej: María García" required>
+
+                <label>¿Podrás acompañarnos?</label>
+                <div class="radio-group">
+                    <input type="radio" name="asiste" value="Si" id="asiste-si" checked>
+                    <label for="asiste-si">¡Sí, allí estaré!</label>
+
+                    <input type="radio" name="asiste" value="No" id="asiste-no">
+                    <label for="asiste-no">Lamentablemente no</label>
+                </div>
+
+                <label for="companions">¿Vienes acompañado? (Indica cuántos)</label>
+                <input type="number" name="acompañantes" id="companions" min="0" value="0">
+
+                <label for="diet">Restricciones alimentarias (Alergias, Vegano, etc.)</label>
+                <textarea name="dieta" id="diet" rows="2"
+                    placeholder="Ej: Celíaco, alérgico a los frutos secos..."></textarea>
+
+                <label>¿Necesitas plaza en el autobús?</label>
+                <select name="autobus">
+                    <option value="no">No, iré por mi cuenta</option>
+                    <option value="si-ida-vuelta">Sí, ida y vuelta</option>
+                    <option value="si-solo-vuelta">Sólo vuelta</option>
                 </select>
 
-                <label for="status">¿Asistirás?</label>
-                <select id="status" name="status" required>
-                    <option value="si">¡Sí, allí estaré!</option>
-                    <option value="no">Lamentablemente no podré</option>
-                </select>
-                
-                <label for="message">Mensaje / Alergias / Canción sugerida</label>
-                <textarea id="message" name="message" rows="4" placeholder="Cuéntanos si tienes alguna alergia alimentaria..."></textarea>
+                <label for="song">¿Qué canción no puede faltar en la fiesta?</label>
+                <input type="text" name="cancion-sugerida" id="song" placeholder="Artista - Título">
 
-                <button type="submit">Enviar Confirmación</button>
+                <button type="submit">Confirmar mi asistencia</button>
             </form>
         </div>
     </section>
@@ -72,4 +87,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
