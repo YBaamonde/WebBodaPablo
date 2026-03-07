@@ -29,6 +29,15 @@
 }
 
 /* --- ESTILOS GENERALES Y RESET --- */
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -54,6 +63,18 @@ h3 {
 .script-font {
     font-family: 'Great Vibes', cursive;
     font-weight: 400;
+}
+
+/* --- TRANSICIÓN DE ENTRADA SUAVE --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* --- BOTÓN DE CAMBIO DE TEMA (DARK MODE TOGGLE) --- */
