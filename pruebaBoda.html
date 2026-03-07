@@ -5,14 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda | Paula & Pablo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="https://fav.farm/💍">
 
-    <!-- Previsualización al enviar link -->
-    <meta property="og:title" content="¡Nos Casamos! - Boda 2026">
+    <meta property="og:title" content="¡Nos Casamos! - Paula & Pablo 2026">
     <meta property="og:description" content="Acompáñanos en nuestro gran día. Toda la información aquí.">
     <meta property="og:image" content="URL_DE_TU_FOTO_PRINCIPAL">
     <meta property="og:url" content="URL_DE_TU_WEB">
@@ -20,15 +17,57 @@
 
 <body>
 
-    <header>
-        <button id="theme-toggle" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
-            🌙 Modo Oscuro
-        </button>
+    <button id="theme-toggle" title="Cambiar modo de luz">🌙 Modo Oscuro</button>
+
+    <header id="inicio">
         <p>¡Nos casamos!</p>
         <h1 class="script-font">Paula & Pablo</h1>
-        <p>18 de Julio de 2026 • Villalba, Lugo</p>
+        <p>18 de Julio de 2026 • Vilalba, Lugo</p>
         <a href="#rsvp" class="cta-button">Confirmar Asistencia</a>
     </header>
+
+    <section id="historia" class="section-container">
+        <h2 class="script-font section-title">Nuestra Historia</h2>
+        
+        <div class="story-item">
+            <div class="story-img">
+                <img src="https://images.unsplash.com/photo-1516589174184-c6848b11674c?auto=format&fit=crop&w=600&q=80" alt="Cómo nos conocimos">
+            </div>
+            <div class="story-text">
+                <h3>¿Cómo empezó todo?</h3>
+                <p>Todo comenzó un martes cualquiera en aquella cafetería que ya no existe. Un café derramado, una risa nerviosa y el resto... bueno, el resto es historia.</p>
+            </div>
+        </div>
+
+        <div class="story-item reverse">
+            <div class="story-img">
+                <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?auto=format&fit=crop&w=600&q=80" alt="Nuestros viajes">
+            </div>
+            <div class="story-text">
+                <h3>Mil aventuras después</h3>
+                <p>Desde mochileros por el sudeste asiático hasta tardes de sofá y manta. Hemos aprendido que no importa el lugar, sino con quién vas.</p>
+            </div>
+        </div>
+
+        <div class="story-item">
+            <div class="story-img">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80" alt="La pedida">
+            </div>
+            <div class="story-text">
+                <h3>El "Sí" definitivo</h3>
+                <p>Bajo la luz de la luna y con los nervios a flor de piel, decidimos que queríamos caminar juntos para siempre. ¡Y ahora queremos celebrarlo con vosotros!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="photos">
+        <h2 class="section-title script-font">Nuestros Momentos</h2>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=800&q=80" alt="Pareja">
+            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=80" alt="Anillo">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Boda">
+        </div>
+    </section>
 
     <section id="countdown-section" class="section-container">
         <h2 class="script-font">¡Ya falta poco!</h2>
@@ -52,133 +91,24 @@
         </div>
     </section>
 
-    <section id="photos">
-        <h2 class="section-title script-font">Nuestros Momentos</h2>
-        <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=800&q=80"
-                alt="Pareja">
-            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=800&q=80"
-                alt="Anillo">
-            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80"
-                alt="Boda">
-        </div>
-    </section>
-
-    <section>
-        <h2 class="section-title script-font">El Gran Día</h2>
-        <p>Estamos muy felices de compartir este día con vosotros.</p>
-        <br>
-        <p><strong>Lugar:</strong> Penas Corbeiras</p>
-        <p><strong>Hora:</strong> 13:30 hrs</p>
-    </section>
-
-    <section id="historia" class="section-container">
-        <h2 class="script-font section-title">Nuestra Historia</h2>
-
-        <div class="story-item">
-            <div class="story-img">
-                <img src="https://images.unsplash.com/photo-1516589174184-c6848b11674c?auto=format&fit=crop&w=600&q=80"
-                    alt="Cómo nos conocimos">
+    <section id="logistica" class="section-container">
+        <h2 class="script-font section-title">El Gran Día</h2>
+        
+        <div id="donde">
+            <div class="info-logistica">
+                <p>📍 <strong>Penas Corbeiras</strong></p>
+                <address>Paseo do Conde, 2, 27800 Vilalba, Lugo</address>
+                <p><strong>Ceremonia y Banquete:</strong> 13:30h</p>
             </div>
-            <div class="story-text">
-                <h3>¿Cómo empezó todo?</h3>
-                <p>Todo comenzó un martes cualquiera en aquella cafetería que ya no existe. Un café derramado, una risa
-                    nerviosa y el resto... bueno, el resto es historia.</p>
+
+            <div style="margin: 25px 0;">
+                <a href="https://maps.app.goo.gl/NVurG2VGAjMiSwHY8" target="_blank" class="cta-button">Ver en Google Maps</a>
+            </div>
+
+            <div class="map-responsive">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d373.65437384258655!2d-7.6841464997568965!3d43.29046403201713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDPCsDE3JzI2LjIiTiA3wrA0MScwMy4wIlc!5e0!3m2!1ses!2ses!4v1772919118847!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
-
-        <div class="story-item reverse">
-            <div class="story-img">
-                <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?auto=format&fit=crop&w=600&q=80"
-                    alt="Nuestros viajes">
-            </div>
-            <div class="story-text">
-                <h3>Mil aventuras después</h3>
-                <p>Desde mochileros por el sudeste asiático hasta tardes de sofá y manta. Hemos aprendido que no importa
-                    el lugar, sino con quién vas.</p>
-            </div>
-        </div>
-
-        <div class="story-item">
-            <div class="story-img">
-                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80"
-                    alt="La pedida">
-            </div>
-            <div class="story-text">
-                <h3>El "Sí" definitivo</h3>
-                <p>Bajo la luz de la luna y con los nervios a flor de piel, decidimos que queríamos caminar juntos para
-                    siempre. ¡Y ahora queremos celebrarlo con vosotros!</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="musica" class="section-container">
-        <div class="spotify-card">
-            <div class="spotify-icon">🎵</div>
-            <h2 class="script-font">¿Nos ayudas con la música?</h2>
-            <p>Queremos que la pista de baile no pare. Añade tus canciones favoritas a la playlist oficial de la boda.
-            </p>
-
-            <a href="https://open.spotify.com/playlist/TU_ID_AQUI" target="_blank" class="spotify-button">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                    <path
-                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 17.333c-.22.34-.663.447-1.003.227-2.73-1.667-6.17-2.047-10.21-1.127-.387.087-.773-.153-.86-.54-.087-.387.153-.773.54-.86 4.427-1.013 8.227-.573 11.307 1.307.34.22.447.663.226 1.003zm1.467-3.267c-.273.44-.853.58-1.293.307-3.12-1.92-7.887-2.48-11.58-1.353-.5.153-1.02-.133-1.173-.633-.153-.5.133-1.02.633-1.173 4.22-1.28 9.48-.653 13.107 1.58.44.273.58.853.306 1.293zm.107-3.413c-3.747-2.227-9.927-2.433-13.487-1.353-.573.173-1.18-.153-1.353-.727-.173-.573.153-1.18.727-1.353 4.107-1.247 10.933-1.007 15.26 1.56.513.307.68.973.373 1.486-.307.513-.973.68-1.486.373z" />
-                </svg>
-                Abrir Playlist en Spotify
-            </a>
-        </div>
-    </section>
-
-    <section id="rsvp">
-        <div class="rsvp-container">
-            <h2 class="script-font">Confirmación de Asistencia</h2>
-            <p>Por favor, confirma antes del 20 de junio de 2026</p>
-
-            <form action="https://formspree.io/f/xqeyapyj" method="POST">
-
-                <label for="name">Nombre y Apellidos</label>
-                <input type="text" name="Invitado" id="name" required pattern="^[a-zA-ZÀ-ÿ\s]{3,60}$"
-                    title="Por favor, introduce solo letras (mínimo 3)" placeholder="Tu nombre completo">
-
-                <label for="attendance">¿Podrás acompañarnos?</label>
-                <select name="Asistencia" id="attendance" required>
-                    <option value="" disabled selected>Selecciona una opción</option>
-                    <option value="Confirmado">¡Sí, allí estaré!</option>
-                    <option value="No_Asiste">Lamentablemente no puedo</option>
-                </select>
-
-                <label for="plus-one">¿Cuántos acompañantes traes? (Sin contarte a ti)</label>
-                <input type="number" name="Acompañantes" id="plus-one" min="0" max="15" value="0" step="1"
-                    onkeydown="return false" style="caret-color: transparent;">
-                <small style="display:block; margin-bottom:15px; color:#777;">Usa las flechas para indicar el
-                    número.</small>
-
-                <label for="diet">Preferencia de menú</label>
-                <select name="Tipo_Menu" id="diet" required>
-                    <option value="Estandar">Menú Estándar</option>
-                    <option value="Vegetariano">Menú Vegetariano</option>
-                    <option value="Vegano">Menú Vegano</option>
-                    <option value="Infantil">Menú Infantil</option>
-                </select>
-
-                <label for="alergias">Alergias o notas importantes</label>
-                <textarea name="Alergias_Detalle" id="alergias" rows="2" maxlength="200"
-                    placeholder="Indica aquí si hay algo que debamos saber..."></textarea>
-
-                <label>¿Necesitas plaza de autobús?</label>
-                <div class="radio-group">
-                    <label><input type="radio" name="Bus" value="No" checked> No, gracias</label><br>
-                    <label><input type="radio" name="Bus" value="Si"> Sí, la necesito</label>
-                </div>
-
-                <button type="submit" class="cta-button">Enviar Confirmación</button>
-
-            </form>
-        </div>
-    </section>
-
-    <section id="info-util" class="section-container">
-        <h2 class="script-font section-title">Información Útil</h2>
 
         <div class="info-grid">
             <article class="info-card">
@@ -191,100 +121,95 @@
             <article class="info-card">
                 <div class="icon">🚌</div>
                 <h3>Transporte</h3>
-                <p>Saldrá un autobús para los que no quieran conducir:</p>
-                <ul>
-                    <li><strong>Ida:</strong> 12:15h - Plaza de España</li>
-                    <li><strong>Vuelta:</strong> 02:00h y 04:00h</li>
-                </ul>
+                <p>Saldrá un autobús desde Plaza de España a las 12:15h. Vuelta: 02:00h y 04:00h.</p>
             </article>
 
             <article class="info-card">
                 <div class="icon">🏨</div>
                 <h3>Alojamiento</h3>
-                <p>Si vienes de fuera, te recomendamos estos hoteles cercanos:</p>
-                <ul class="hotel-list">
-                    <li>Hotel Alcalá Plaza (Código: BODA2026)</li>
-                    <li>Rafaelhoteles Forum Alcalá</li>
-                </ul>
+                <p>Hoteles recomendados: Alcalá Plaza (Código: BODA2026) y Rafaelhoteles Forum.</p>
             </article>
         </div>
 
         <div class="timeline-container">
-            <h3 class="script-font" style="font-size: 2.5rem; margin-top: 60px;">Cronograma del Día</h3>
-
+            <h3 class="script-font">Cronograma del Día</h3>
             <div class="timeline">
                 <div class="timeline-event">
-                    <div class="timeline-time">13:00</div>
-                    <div class="timeline-content">
-                        <h4>Ceremonia</h4>
-                        <p>El momento del "Sí, quiero" en los jardines.</p>
-                    </div>
+                    <div class="timeline-time">13:30</div>
+                    <div class="timeline-content"><h4>Ceremonia</h4><p>El "Sí, quiero" en los jardines.</p></div>
                 </div>
-
                 <div class="timeline-event">
                     <div class="timeline-time">14:30</div>
-                    <div class="timeline-content">
-                        <h4>Cóctel</h4>
-                        <p>Brindis, música en directo y aperitivos.</p>
-                    </div>
+                    <div class="timeline-content"><h4>Cóctel</h4><p>Música y aperitivos.</p></div>
                 </div>
-
                 <div class="timeline-event">
                     <div class="timeline-time">16:00</div>
-                    <div class="timeline-content">
-                        <h4>Banquete</h4>
-                        <p>Cena y grandes momentos alrededor de la mesa.</p>
-                    </div>
+                    <div class="timeline-content"><h4>Banquete</h4><p>Cena y celebración.</p></div>
                 </div>
-
                 <div class="timeline-event">
                     <div class="timeline-time">18:30</div>
-                    <div class="timeline-content">
-                        <h4>Fiesta y Baile</h4>
-                        <p>¡A darlo todo en la pista hasta que el cuerpo aguante!</p>
-                    </div>
+                    <div class="timeline-content"><h4>Fiesta</h4><p>¡A bailar!</p></div>
                 </div>
             </div>
         </div>
 
         <div class="kids-notice">
-            <p>👶 <strong>Sobre los niños:</strong> Queremos que disfrutéis sin preocupaciones. Esta vez será una
-                celebración solo para adultos.</p>
+            <p>👶 <strong>Nota:</strong> Esta será una celebración solo para adultos.</p>
         </div>
     </section>
 
-    <section id="donde" class="section-container">
-        <h2 class="script-font">Lugar y Hora</h2>
-        <div class="info-logistica">
-            <p><strong>Ceremonia y Banquete:</strong> 13:00h</p>
-            <p>📍 <strong>Penas Corbeiras</strong></p>
-            <address>
-                Paseo do Conde, 2<br>
-                27800, Vilalba, Lugo<br>
-            </address>
+    <section id="musica" class="section-container">
+        <div class="spotify-card">
+            <div class="spotify-icon">🎵</div>
+            <h2 class="script-font">¿Nos ayudas con la música?</h2>
+            <p>Añade tus canciones favoritas a la playlist oficial.</p>
+            <a href="#" target="_blank" class="spotify-button">Abrir en Spotify</a>
         </div>
+    </section>
 
-        <div style="margin: 25px 0;">
-            <a href="https://maps.app.goo.gl/NVurG2VGAjMiSwHY8" target="_blank" class="cta-button">
-                Ver en Google Maps
-            </a>
-        </div>
+    <section id="rsvp" class="section-container rsvp-section">
+        <h2 class="script-font">Confirmación de Asistencia</h2>
+        <p>Por favor, confirma antes del 20 de junio de 2026</p>
+        
+        <form action="https://formspree.io/f/xqeyapyj" method="POST">
+            <label for="name">Nombre y Apellidos</label>
+            <input type="text" name="Invitado" id="name" required pattern="^[a-zA-ZÀ-ÿ\s]{3,60}$" placeholder="Tu nombre completo">
 
-        <div class="map-responsive">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d373.65437384258655!2d-7.6841464997568965!3d43.29046403201713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDPCsDE3JzI2LjIiTiA3wrA0MScwMy4wIlc!5e0!3m2!1ses!2ses!4v1772919118847!5m2!1ses!2ses"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
+            <label for="attendance">¿Podrás acompañarnos?</label>
+            <select name="Asistencia" id="attendance" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="Confirmado">¡Sí, allí estaré!</option>
+                <option value="No_Asiste">Lamentablemente no puedo</option>
+            </select>
+
+            <label for="plus-one">¿Cuántos acompañantes traes?</label>
+            <input type="number" name="Acompañantes" id="plus-one" min="0" max="15" value="0" step="1" onkeydown="return false">
+
+            <label for="diet">Preferencia de menú</label>
+            <select name="Tipo_Menu" id="diet" required>
+                <option value="Estandar">Menú Estándar</option>
+                <option value="Vegetariano">Menú Vegetariano</option>
+                <option value="Infantil">Menú Infantil</option>
+            </select>
+
+            <label for="alergias">Alergias o notas importantes</label>
+            <textarea name="Alergias_Detalle" id="alergias" rows="2" maxlength="200"></textarea>
+
+            <label>¿Necesitas plaza de autobús?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="Bus" value="No" checked> No</label>
+                <label><input type="radio" name="Bus" value="Si"> Sí</label>
+            </div>
+
+            <button type="submit" class="cta-button">Enviar Confirmación</button>
+        </form>
     </section>
 
     <footer>
         <p>Con amor, Paula & Pablo</p>
-        <p style="font-size: 0.8rem; margin-top: 10px;">Esperamos verte allí</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">2026 • Villalba</p>
     </footer>
 
     <script src="js/main.js"></script>
 </body>
-
 </html>
