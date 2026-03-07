@@ -1,13 +1,32 @@
-/* --- ESTILOS GENERALES --- */
+/* --- VARIABLES Y CONFIGURACIÓN DE COLORES (MODO CLARO POR DEFECTO) --- */
 :root {
-    --primary-color: #6d8b74;
-    /* Verde Salvia elegante */
-    --accent-color: #d4a373;
-    /* Dorado suave */
+    --primary-color: #6d8b74; /* Verde Salvia elegante */
+    --accent-color: #d4a373;  /* Dorado suave */
     --bg-color: #f9f9f9;
+    --section-bg: #ffffff;
     --text-color: #444;
+    --input-bg: #ffffff;
+    --input-border: #dddddd;
+    --card-bg: #f9f9f9;
+    --footer-bg: #333333;
+    --footer-text: #dddddd;
 }
 
+/* --- VARIABLES PARA MODO OSCURO (DATA-THEME DARK) --- */
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --section-bg: #262626;
+    --text-color: #f0f0f0;
+    --input-bg: #333333;
+    --input-border: #444444;
+    --card-bg: #333333;
+    --footer-bg: #000000;
+    --footer-text: #bbbbbb;
+    /* Mantenemos el primary y accent pero quizás un poco más vibrantes */
+    --primary-color: #8fb198; 
+}
+
+/* --- ESTILOS GENERALES Y RESET --- */
 * {
     margin: 0;
     padding: 0;
@@ -20,11 +39,10 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para el modo oscuro */
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     color: var(--primary-color);
 }
 
@@ -33,11 +51,32 @@ h3 {
     font-weight: 400;
 }
 
+/* --- BOTÓN DE CAMBIO DE TEMA (DARK MODE TOGGLE) --- */
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.05);
+}
+
 /* --- HERO SECTION (Panel Principal) --- */
 header {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-    /* Foto de fondo ejemplo */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -73,6 +112,7 @@ header p {
     transition: all 0.3s ease;
     text-transform: uppercase;
     font-size: 0.9rem;
+    display: inline-block;
 }
 
 .cta-button:hover {
@@ -117,11 +157,12 @@ section {
 
 /* --- FORMULARIO RSVP --- */
 .rsvp-section {
-    background-color: white;
+    background-color: var(--section-bg);
     border-radius: 15px;
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     margin-bottom: 80px;
+    transition: background-color 0.3s;
 }
 
 form {
@@ -136,21 +177,21 @@ form {
 label {
     font-weight: 600;
     font-size: 0.9rem;
+    color: var(--text-color);
 }
 
-input,
-select,
-textarea {
+input, select, textarea {
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--input-border);
     border-radius: 5px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
     font-family: inherit;
     font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--primary-color);
 }
@@ -171,26 +212,16 @@ button[type="submit"]:hover {
     background-color: #556e5b;
 }
 
-footer {
-    background-color: #333;
-    color: #ddd;
-    padding: 40px 20px;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
 /* --- ESTILOS PARA EL MAPA RESPONSIVO --- */
 .map-responsive {
     overflow: hidden;
     padding-bottom: 56.25%;
-    /* Esto mantiene una proporción de 16:9 */
     position: relative;
     height: 0;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     max-width: 900px;
-    /* Para que no sea infinito en pantallas grandes */
 }
 
 .map-responsive iframe {
@@ -199,6 +230,17 @@ footer {
     height: 100%;
     width: 100%;
     position: absolute;
+    filter: grayscale(0.2); /* Un toque elegante */
+}
+
+/* OPCIONAL: Suaviza el mapa en modo oscuro sin invertir colores */
+[data-theme="dark"] .map-responsive iframe {
+    opacity: 0.85;
+    transition: opacity 0.3s;
+}
+
+[data-theme="dark"] .map-responsive iframe:hover {
+    opacity: 1; /* Se ilumina al pasar el ratón */
 }
 
 .info-logistica {
@@ -209,9 +251,8 @@ footer {
 
 address {
     font-style: normal;
-    color: #666;
+    color: var(--text-color);
 }
-
 
 /* --- ESTILOS PARA EL CONTADOR REGRESIVO --- */
 #countdown {
@@ -223,25 +264,37 @@ address {
 
 .countdown-item {
     text-align: center;
-    background: #f9f9f9;
+    background: var(--card-bg);
     padding: 15px;
     border-radius: 8px;
     min-width: 80px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
 }
 
 .countdown-item span {
     display: block;
     font-size: 2rem;
     font-weight: bold;
-    color: #d4a373; /* Un color tierra/dorado suave */
+    color: var(--accent-color);
 }
 
 .countdown-item p {
     margin: 0;
     font-size: 0.9rem;
     text-transform: uppercase;
-    color: #666;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* --- PIE DE PÁGINA (FOOTER) --- */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
 }
 
 /* --- RESPONSIVE --- */
@@ -252,5 +305,14 @@ address {
 
     section {
         padding: 50px 20px;
+    }
+
+    #countdown {
+        gap: 10px;
+    }
+
+    .countdown-item {
+        min-width: 65px;
+        padding: 10px;
     }
 }

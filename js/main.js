@@ -37,3 +37,30 @@ const countdownInterval = setInterval(updateCountdown, 1000);
 
 // Ejecutamos una vez al cargar para evitar el "00" inicial
 updateCountdown();
+
+
+// Modo oscuro
+const themeToggle = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
+
+// Si ya existía una preferencia guardada, la aplicamos
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+        themeToggle.innerText = "☀️ Modo Claro";
+    }
+}
+
+themeToggle.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeToggle.innerText = "🌙 Modo Oscuro";
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.innerText = "☀️ Modo Claro";
+        localStorage.setItem('theme', 'dark');
+    }
+});
