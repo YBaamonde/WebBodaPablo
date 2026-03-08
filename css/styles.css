@@ -330,6 +330,54 @@ section {
   margin-bottom: 2.5rem;
 }
 
+.hotel-list {
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 1.5px solid rgba(192,57,43,0.2);
+  border-radius: 8px;
+  background: rgba(192,57,43,0.06);
+}
+
+.hotel-list .section-subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: var(--red);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.hotel-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hotel-links li a {
+  display: block;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(192,57,43,0.25);
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hotel-links li a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.hotel-note {
+  text-align: center;
+  font-style: italic;
+  opacity: 0.75;
+  margin-top: 0.75rem;
+}
+
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -501,6 +549,13 @@ footer .footer-sub {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   opacity: 0.9;
   transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.no-card {
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  border-radius: 0 !important;
 }
 
 .illus svg:hover {
