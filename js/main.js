@@ -59,6 +59,60 @@ document.addEventListener('DOMContentLoaded', () => {
     tlItems.forEach(item => timelineObserver.observe(item));
   }
 
+  /* ── Galería / Carrusel ── */
+  const gallery = document.querySelector('[data-gallery]');
+  if (gallery) {
+    const track = gallery.querySelector('.gallery-track');
+    const slides = Array.from(gallery.querySelectorAll('.gallery-slide'));
+    const dots = gallery.querySelector('.gallery-dots');
+    const prev = gallery.querySelector('.gallery-control.prev');
+    const next = gallery.querySelector('.gallery-control.next');
+    let current = 0;
+
+    function updateSlidePosition(index) {
+      if (!track) return;
+      const target = Math.max(0, Math.min(slides.length - 1, index));
+      track.style.transform = `translateX(-${target * 100}%)`;
+      current = target;
+      if (dots) {
+        dots.querySelectorAll('.gallery-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === target);
+        });
+      }
+
+      slides.forEach((slide, i) => {
+        const video = slide.querySelector('video');
+        if (video) {
+          if (i === target) {
+            // keep user in control; do not autoplay
+          } else {
+            video.pause();
+            video.currentTime = 0;
+          }
+        }
+      });
+    }
+
+    function goNext() { updateSlidePosition(current + 1 >= slides.length ? 0 : current + 1); }
+    function goPrev() { updateSlidePosition(current - 1 < 0 ? slides.length - 1 : current - 1); }
+
+    if (dots) {
+      dots.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'gallery-dot';
+        dot.addEventListener('click', () => updateSlidePosition(i));
+        dots.appendChild(dot);
+      });
+    }
+
+    if (prev) prev.addEventListener('click', goPrev);
+    if (next) next.addEventListener('click', goNext);
+
+    updateSlidePosition(0);
+  }
+
   /* ── Formspree AJAX submit (con validación) ── */
   const form = document.getElementById('rsvp-form');
   const success = document.getElementById('form-success');

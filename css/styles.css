@@ -71,16 +71,6 @@ nav a:hover::after { width: 100%; }
   position: relative;
 }
 
-/* Dotted border frame */
-#hero::before {
-  content: '';
-  position: absolute;
-  inset: 80px 40px 40px;
-  border: 2px dashed rgba(192,57,43,0.25);
-  border-radius: 2px;
-  pointer-events: none;
-}
-
 .hero-names {
   font-family: 'Caveat', cursive;
   font-size: clamp(4.5rem, 12vw, 8rem);
@@ -236,6 +226,90 @@ section {
 .timeline {
   position: relative;
   margin-top: 2rem;
+}
+
+/* ─── GALERÍA / CARRUSEL ─── */
+.gallery-section {
+  position: relative;
+}
+.gallery-intro {
+  text-align: center;
+  font-style: italic;
+  opacity: 0.75;
+  margin: 0 auto 2.5rem;
+  max-width: 680px;
+}
+.gallery {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(192,57,43,0.2);
+  background: rgba(255,255,255,0.92);
+}
+.gallery-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+.gallery-slide {
+  flex: 0 0 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-slide img,
+.gallery-slide video {
+  max-width: 100%;
+  max-height: 450px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+.gallery-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(192,57,43,0.35);
+  background: rgba(255,255,255,0.8);
+  color: var(--red);
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 0.15s ease, background 0.15s ease;
+  z-index: 2;
+}
+.gallery-control:hover {
+  transform: translateY(-50%) scale(1.05);
+  background: rgba(255,255,255,1);
+}
+.gallery-control.prev { left: 1rem; }
+.gallery-control.next { right: 1rem; }
+
+.gallery-dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+.gallery-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(26,10,8,0.25);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.gallery-dot.active {
+  background: var(--red);
 }
 /* Vertical line */
 .timeline::before {
