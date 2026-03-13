@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Qipao Pointed';
+    src: url('Qipao-Pointed.eot');
+    src: local('Qipao Pointed'), local('Qipao-Pointed'),
+        url('Qipao-Pointed.eot?#iefix') format('embedded-opentype'),
+        url('Qipao-Pointed.woff2') format('woff2'),
+        url('Qipao-Pointed.woff') format('woff'),
+        url('Qipao-Pointed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Qipao';
+    src: url('Qipao-Regular.eot');
+    src: local('Qipao Regular'), local('Qipao-Regular'),
+        url('Qipao-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Qipao-Regular.woff2') format('woff2'),
+        url('Qipao-Regular.woff') format('woff'),
+        url('Qipao-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Qipao Blotchy';
+    src: url('Qipao-Blotchy.eot');
+    src: local('Qipao Blotchy'), local('Qipao-Blotchy'),
+        url('Qipao-Blotchy.eot?#iefix') format('embedded-opentype'),
+        url('Qipao-Blotchy.woff2') format('woff2'),
+        url('Qipao-Blotchy.woff') format('woff'),
+        url('Qipao-Blotchy.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Qipao Slashed';
+    src: url('Qipao-Slashed.eot');
+    src: local('Qipao Slashed'), local('Qipao-Slashed'),
+        url('Qipao-Slashed.eot?#iefix') format('embedded-opentype'),
+        url('Qipao-Slashed.woff2') format('woff2'),
+        url('Qipao-Slashed.woff') format('woff'),
+        url('Qipao-Slashed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Qipao Rough';
+    src: url('Qipao-Rough.eot');
+    src: local('Qipao Rough'), local('Qipao-Rough'),
+        url('Qipao-Rough.eot?#iefix') format('embedded-opentype'),
+        url('Qipao-Rough.woff2') format('woff2'),
+        url('Qipao-Rough.woff') format('woff'),
+        url('Qipao-Rough.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Qipao Rougher';
+    src: url('Qipao-Rougher.eot');
+    src: local('Qipao Rougher'), local('Qipao-Rougher'),
+        url('Qipao-Rougher.eot?#iefix') format('embedded-opentype'),
+        url('Qipao-Rougher.woff2') format('woff2'),
+        url('Qipao-Rougher.woff') format('woff'),
+        url('Qipao-Rougher.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

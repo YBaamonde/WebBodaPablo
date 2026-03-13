@@ -1,241 +1,108 @@
-// JS principal para la página
+/* ==========================================================================
+   1. CONFIGURACIÓN Y ESTADO INICIAL
+   ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
-  /* ── Cuenta regresiva (si existen los elementos) ── */
-  const targetDate = new Date('July 18, 2026 13:00:00').getTime();
-  const daysEl = document.getElementById('days');
-  const hoursEl = document.getElementById('hours');
-  const minutesEl = document.getElementById('minutes');
-  const secondsEl = document.getElementById('seconds');
+// Fecha del gran día
+const eventDate = new Date('July 18, 2026 13:30:00').getTime();
 
-  function updateCountdown() {
-    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+// Elementos del DOM para el tema
+const themeToggle = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
 
-    const now = Date.now();
-    const diff = Math.max(0, targetDate - now);
+/* ==========================================================================
+   2. GESTIÓN DEL MODO OSCURO (DARK MODE)
+   ========================================================================== */
 
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-    daysEl.innerText = d;
-    hoursEl.innerText = h;
-    minutesEl.innerText = m;
-    secondsEl.innerText = s;
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
-  /* ── Reveal content on scroll ── */
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        sectionObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = 0;
-    section.style.transition = 'opacity 1s ease-out';
-    sectionObserver.observe(section);
-  });
-
-  /* ── Timeline animation ── */
-  const tlItems = document.querySelectorAll('.tl-item');
-  if (tlItems.length) {
-    const timelineObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          timelineObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    tlItems.forEach(item => timelineObserver.observe(item));
-  }
-
-  /* ── Galería / Carrusel ── */
-  const gallery = document.querySelector('[data-gallery]');
-  if (gallery) {
-    const track = gallery.querySelector('.gallery-track');
-    const slides = Array.from(gallery.querySelectorAll('.gallery-slide'));
-    const dots = gallery.querySelector('.gallery-dots');
-    const prev = gallery.querySelector('.gallery-control.prev');
-    const next = gallery.querySelector('.gallery-control.next');
-    let current = 0;
-
-    function updateSlidePosition(index) {
-      if (!track) return;
-      const target = Math.max(0, Math.min(slides.length - 1, index));
-      track.style.transform = `translateX(-${target * 100}%)`;
-      current = target;
-      if (dots) {
-        dots.querySelectorAll('.gallery-dot').forEach((dot, i) => {
-          dot.classList.toggle('active', i === target);
-        });
-      }
-
-      slides.forEach((slide, i) => {
-        const video = slide.querySelector('video');
-        if (video) {
-          if (i === target) {
-            // keep user in control; do not autoplay
-          } else {
-            video.pause();
-            video.currentTime = 0;
-          }
-        }
-      });
+// Aplicamos preferencia guardada al cargar
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+        themeToggle.innerText = "☀️ Modo Claro";
     }
+}
 
-    function goNext() { updateSlidePosition(current + 1 >= slides.length ? 0 : current + 1); }
-    function goPrev() { updateSlidePosition(current - 1 < 0 ? slides.length - 1 : current - 1); }
-
-    if (dots) {
-      dots.innerHTML = '';
-      slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'gallery-dot';
-        dot.addEventListener('click', () => updateSlidePosition(i));
-        dots.appendChild(dot);
-      });
-    }
-
-    if (prev) prev.addEventListener('click', goPrev);
-    if (next) next.addEventListener('click', goNext);
-
-    updateSlidePosition(0);
-  }
-
-  /* ── Formspree AJAX submit (con validación) ── */
-  const form = document.getElementById('rsvp-form');
-  const success = document.getElementById('form-success');
-
-  function setFieldError(input, message) {
-    if (!input) return;
-    let error = input.parentElement.querySelector('.field-error');
-    if (!error) {
-      error = document.createElement('span');
-      error.className = 'field-error';
-      input.parentElement.appendChild(error);
-    }
-    error.textContent = message;
-  }
-
-  function clearFieldError(input) {
-    if (!input) return;
-    const error = input.parentElement.querySelector('.field-error');
-    if (error) error.remove();
-  }
-
-  function validateRsvpForm() {
-    if (!form) return false;
-
-    const name = form.querySelector('#nombre');
-    const asistencia = form.querySelector('input[name="asistencia"]:checked');
-    const acompanantes = form.querySelector('#acompanantes');
-    const mensaje = form.querySelector('#mensaje');
-
-    let valid = true;
-
-    // Nombre mínimo 2 caracteres (sin contar espacios) y sin números
-    if (name) {
-      const value = name.value.trim();
-      clearFieldError(name);
-      if (value.length < 2) {
-        setFieldError(name, 'Introduce tu nombre completo.');
-        valid = false;
-      } else if (/\d/.test(value)) {
-        setFieldError(name, 'El nombre no puede contener números.');
-        valid = false;
-      }
-    }
-
-    // Asistencia obligatoria
-    if (!asistencia) {
-      const radioWrapper = form.querySelector('.radio-group');
-      if (radioWrapper) {
-        setFieldError(radioWrapper, 'Selecciona si vas a asistir.');
-      }
-      valid = false;
+// Escuchador para el cambio de tema
+themeToggle.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeToggle.innerText = "🌙 Modo Oscuro";
+        localStorage.setItem('theme', 'light');
     } else {
-      const radioWrapper = form.querySelector('.radio-group');
-      if (radioWrapper) clearFieldError(radioWrapper);
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.innerText = "☀️ Modo Claro";
+        localStorage.setItem('theme', 'dark');
     }
+});
 
-    // Acompañantes (0-4)
-    if (acompanantes) {
-      clearFieldError(acompanantes);
-      const value = Number(acompanantes.value);
-      if (Number.isNaN(value) || value < 0 || value > 4) {
-        setFieldError(acompanantes, 'Selecciona un número válido (0–4).');
-        valid = false;
-      }
-    }
+/* ==========================================================================
+   3. LÓGICA DE LA CUENTA ATRÁS (COUNTDOWN)
+   ========================================================================== */
 
-    // Mensaje (opcional, pero no demasiado largo)
-    if (mensaje) {
-      clearFieldError(mensaje);
-      if (mensaje.value.length > 400) {
-        setFieldError(mensaje, 'Máximo 400 caracteres.');
-        valid = false;
-      }
-    }
+const updateCountdown = () => {
+    const now = new Date().getTime();
+    const duration = eventDate - now;
 
-    return valid;
-  }
-
-  if (form && success) {
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      if (!validateRsvpForm()) return;
-
-      const btn = form.querySelector('.btn-submit');
-      if (btn) {
-        btn.textContent = 'Enviando…';
-        btn.disabled = true;
-      }
-
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (res.ok) {
-          form.style.display = 'none';
-          success.style.display = 'block';
-        } else {
-          if (btn) {
-            btn.textContent = '¡Confirmar asistencia!';
-            btn.disabled = false;
-          }
-          alert('Ha habido un error. Por favor, inténtalo de nuevo.');
+    // Caso: La boda ya ha pasado o es hoy
+    if (duration < 0) {
+        clearInterval(countdownInterval);
+        const countdownContainer = document.getElementById('countdown');
+        if (countdownContainer) {
+            countdownContainer.innerHTML = "<h3>¡Estamos de celebración! 🥂</h3>";
         }
-      } catch (err) {
-        if (btn) {
-          btn.textContent = '¡Confirmar asistencia!';
-          btn.disabled = false;
-        }
-        alert('Sin conexión. Por favor, inténtalo de nuevo.');
-      }
-    });
-  }
+        return;
+    }
 
-  /* ── Subtle parallax on hero names ── */
-  const heroNames = document.querySelector('.hero-names');
-  if (heroNames) {
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      heroNames.style.transform = `translateY(${y * 0.15}px)`;
+    // Cálculos de tiempo
+    const days = Math.floor(duration / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((duration % (1000 * 60)) / 1000);
+
+    // Actualización de UI para el título (Menos de 24h)
+    const countdownTitle = document.querySelector('#countdown-section h2');
+    if (days === 0 && duration > 0 && countdownTitle) {
+        countdownTitle.innerText = "¡Mañana es el gran día! ✨";
+        countdownTitle.style.color = "var(--accent-color)"; 
+    }
+
+    // Inserción de valores con formato 00
+    const dEl = document.getElementById('days');
+    const hEl = document.getElementById('hours');
+    const mEl = document.getElementById('minutes');
+    const sEl = document.getElementById('seconds');
+
+    if (dEl) dEl.innerText = days.toString().padStart(2, '0');
+    if (hEl) hEl.innerText = hours.toString().padStart(2, '0');
+    if (mEl) mEl.innerText = minutes.toString().padStart(2, '0');
+    if (sEl) sEl.innerText = seconds.toString().padStart(2, '0');
+};
+
+// Intervalo de actualización (1 segundo)
+const countdownInterval = setInterval(updateCountdown, 1000);
+updateCountdown(); // Ejecución inmediata al cargar
+
+/* ==========================================================================
+   4. ANIMACIONES DE ENTRADA (INTERSECTION OBSERVER)
+   ========================================================================== */
+
+const observerOptions = {
+    threshold: 0.1 // Se activa cuando el 10% de la sección es visible
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Opcional: dejar de observar una vez animado
+            // observer.unobserve(entry.target); 
+        }
     });
-  }
+}, observerOptions);
+
+// Aplicamos la clase base y empezamos a observar todas las secciones
+document.querySelectorAll('section').forEach(section => {
+    section.classList.add('fade-in');
+    observer.observe(section);
 });
