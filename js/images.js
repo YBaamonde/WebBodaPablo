@@ -1,30 +1,68 @@
 // Generado automáticamente — no editar a mano
-// Para actualizar: node scripts/generate-images.js
 export const IMAGES = [
-  { file: "2BC0406C-C4EE-4D5C-A121-6A67AA87866E.JPG", position: "50% 95%" },
-  "4af1ee78-5f37-4a66-849e-cb09b0698eb9.JPG",
-  {file: "88cba50c-483d-412a-9da2-d8338b98b8ea.jpg" },
-  "FILIPINAS -20.jpg",
-  "FILIPINAS -358.jpg",
-  { file: "FILIPINAS -360.jpg", position: "50% 80%" },
-  { file: "FILIPINAS -361.jpg", position: "50% 80%" },
-  "FILIPINAS -522.jpg",
-  { file: "FILIPINAS -65.jpg", position: "50% 20%" },
-  "FILIPINAS -66.jpg",
-  "FILIPINAS -67.jpg",
-  "IMG_6955.JPG",
-  { file: "MARRUECOS 22-11.JPG", position: "50% 1%" },
-  "P1014413.JPG",
-  "USA 2021-41.jpg",
-  { file: "WhatsApp Image 2026-03-08 at 12.28.09.jpeg", position: "50% 40%" },
-  { file: "WhatsApp Image 2026-03-08 at 12.28.47.jpeg", position: "50% 70%" },
-  "WhatsApp Image 2026-03-08 at 12.34.08.jpeg",
-  { file: "paris1.jpeg", position: "50% 70%" },
-  { file: "paris2.jpeg", position: "50% 70%" },
-  "WhatsApp Image 2026-03-08 at 12.37.25.jpeg",
-  { file: "WhatsApp Image 2026-03-08 at 12.38.15.jpeg", position: "50% 90%" },
-  "_DSC1410.JPG",
-  {file: "_DSC7417.jpg", position: "50% 90%" },
-  {file: "bb5d0f5f-b256-444a-88c7-84257c2f2a0f.jpg", position: "50% 70%"},
-  {file: "bf557194-329e-437b-a428-a3d3dd17b7cb.JPG", position: "50% 10%"},
+  {
+    "file": "foto-01.jpg",
+    "position": "50% 95%"
+  },
+  "foto-02.jpg",
+  "foto-03.jpg",
+  "foto-04.jpg",
+  "foto-05.jpg",
+  {
+    "file": "foto-06.jpg",
+    "position": "50% 80%"
+  },
+  {
+    "file": "foto-07.jpg",
+    "position": "50% 80%"
+  },
+  "foto-08.jpg",
+  {
+    "file": "foto-09.jpg",
+    "position": "50% 20%"
+  },
+  "foto-10.jpg",
+  "foto-11.jpg",
+  "foto-12.jpg",
+  {
+    "file": "foto-13.jpg",
+    "position": "50% 1%"
+  },
+  "foto-14.jpg",
+  "foto-15.jpg",
+  {
+    "file": "foto-16.jpeg",
+    "position": "50% 40%"
+  },
+  {
+    "file": "foto-17.jpeg",
+    "position": "50% 70%"
+  },
+  "foto-18.jpeg",
+  "foto-19.jpeg",
+  {
+    "file": "foto-20.jpeg",
+    "position": "50% 90%"
+  },
+  "foto-21.jpg",
+  {
+    "file": "foto-22.jpg",
+    "position": "50% 90%"
+  },
+  {
+    "file": "foto-23.jpg",
+    "position": "50% 70%"
+  },
+  {
+    "file": "foto-24.jpg",
+    "position": "50% 10%"
+  },
+  {
+    "file": "foto-25.jpeg",
+    "position": "50% 70%"
+  },
+  {
+    "file": "foto-26.jpeg",
+    "position": "50% 70%"
+  }
 ];
