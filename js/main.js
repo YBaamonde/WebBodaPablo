@@ -1,23 +1,24 @@
+import { IMAGES } from './images.js';
+
 /* ==========================================================================
    1. CONFIGURACIÓN INICIAL
    ========================================================================== */
 
-const eventDate    = new Date('July 18, 2026 13:30:00').getTime();
-const themeToggle  = document.getElementById('theme-toggle');
-const savedTheme   = localStorage.getItem('theme');
+const eventDate   = new Date('July 18, 2026 13:30:00').getTime();
+const themeToggle = document.getElementById('theme-toggle');
+const savedTheme  = localStorage.getItem('theme');
 
 /* ==========================================================================
    2. MODO OSCURO
    ========================================================================== */
 
-// Aplicar preferencia guardada al cargar la página
 if (savedTheme) {
     document.documentElement.setAttribute('data-theme', savedTheme);
     themeToggle.innerText = savedTheme === 'dark' ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
 }
 
 themeToggle.addEventListener('click', () => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const isDark   = document.documentElement.getAttribute('data-theme') === 'dark';
     const newTheme = isDark ? 'light' : 'dark';
 
     document.documentElement.setAttribute('data-theme', newTheme);
@@ -38,16 +39,15 @@ if (plusOneInput) {
    4. CUENTA ATRÁS
    ========================================================================== */
 
-const dEl = document.getElementById('days');
-const hEl = document.getElementById('hours');
-const mEl = document.getElementById('minutes');
-const sEl = document.getElementById('seconds');
+const dEl            = document.getElementById('days');
+const hEl            = document.getElementById('hours');
+const mEl            = document.getElementById('minutes');
+const sEl            = document.getElementById('seconds');
 const countdownTitle = document.querySelector('#countdown-section h2');
 
 const updateCountdown = () => {
     const remaining = eventDate - Date.now();
 
-    // La boda ya pasó
     if (remaining < 0) {
         clearInterval(countdownInterval);
         const container = document.getElementById('countdown');
@@ -60,7 +60,6 @@ const updateCountdown = () => {
     const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-    // Mensaje especial cuando queda menos de un día
     if (days === 0 && countdownTitle) {
         countdownTitle.innerText = '¡Mañana es el gran día! ✨';
         countdownTitle.style.color = 'var(--accent-color)';
@@ -73,7 +72,7 @@ const updateCountdown = () => {
 };
 
 const countdownInterval = setInterval(updateCountdown, 1000);
-updateCountdown(); // Primera ejecución inmediata
+updateCountdown();
 
 /* ==========================================================================
    5. ANIMACIONES DE ENTRADA (Intersection Observer)
@@ -82,9 +81,7 @@ updateCountdown(); // Primera ejecución inmediata
 const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     },
     { threshold: 0.1 }
@@ -94,3 +91,104 @@ document.querySelectorAll('section').forEach((section) => {
     section.classList.add('fade-in');
     observer.observe(section);
 });
+
+/* ==========================================================================
+   6. CARRUSEL — NUESTRA HISTORIA
+   ========================================================================== */
+
+(function () {
+    const INTERVAL   = 4500;
+    const IMAGE_PATH = '/media/Imagenes/';
+
+    const track    = document.getElementById('historia-track');
+    const progress = document.getElementById('historia-progress');
+    const prevBtn  = document.getElementById('historia-prev');
+    const nextBtn  = document.getElementById('historia-next');
+    const wrap     = document.getElementById('historia-carousel');
+
+    if (!track) return;
+
+    IMAGES.forEach((entry, i) => {
+        const file     = typeof entry === 'string' ? entry : entry.file;
+        const position = typeof entry === 'string' ? 'center' : (entry.position ?? 'center');
+        const zoom     = typeof entry === 'string' ? 'cover'  : (entry.zoom     ?? 'cover');
+
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        slide.style.backgroundImage    = `url(${IMAGE_PATH}${file})`;
+        slide.style.backgroundSize     = zoom;
+        slide.style.backgroundPosition = position;
+        slide.setAttribute('aria-label', `Foto ${i + 1}`);
+        track.appendChild(slide);
+    });
+
+    const total = IMAGES.length;
+    let current = 0;
+    let timer;
+
+    function goTo(idx) {
+        current = (idx + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        restartProgress();
+    }
+
+    function restartProgress() {
+        clearInterval(timer);
+        progress.style.transition = 'none';
+        progress.style.width = '0%';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            progress.style.transition = `width ${INTERVAL}ms linear`;
+            progress.style.width = '100%';
+        }));
+        timer = setInterval(() => goTo(current + 1), INTERVAL);
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    let startX = 0;
+    wrap.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+    wrap.addEventListener('touchend',   (e) => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    });
+
+    restartProgress();
+})();
+
+/* ==========================================================================
+   7. FORMULARIO: mostrar pregunta de autobús solo si viene de Viveiro
+   ========================================================================== */
+
+document.querySelectorAll('input[name="Viveiro"]').forEach((radio) => {
+    radio.addEventListener('change', (e) => {
+        const busQuestion = document.getElementById('bus-question');
+        const busInputs   = busQuestion.querySelectorAll('input[name="Bus"]');
+
+        if (e.target.value === 'Si') {
+            busQuestion.classList.remove('hidden');
+        } else {
+            busQuestion.classList.add('hidden');
+            busInputs.forEach((input) => { if (input.value === 'No') input.checked = true; });
+        }
+    });
+});
+
+/* ==========================================================================
+   8. FADE DE SALIDA DEL HEADER AL HACER SCROLL
+   ========================================================================== */
+
+(function () {
+    const content = document.querySelector('.header-content');
+    const header  = document.querySelector('header');
+
+    if (!content || !header) return;
+
+    content.style.transition = 'opacity 0.15s ease';
+
+    window.addEventListener('scroll', () => {
+        const threshold = header.offsetHeight * 0.25;
+        const opacity   = Math.max(0, 1 - (window.scrollY / threshold));
+        content.style.opacity = opacity;
+    }, { passive: true });
+})();
