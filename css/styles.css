@@ -3,8 +3,8 @@
    ========================================================================== */
 
 :root {
-  --primary-color: #6d8b74; /* Verde Salvia */
-  --accent-color: #d4a373; /* Dorado suave */
+  --primary-color: #8c6a3a;
+  --accent-color: #ce3334; /* ← nuevo color de acento */
   --bg-color: #f9f9f9;
   --section-bg: #ffffff;
   --text-color: #444444;
@@ -16,8 +16,9 @@
 }
 
 [data-theme="dark"] {
-  --primary-color: #8fb198;
-  --bg-color: #1a1a1a;
+  --primary-color: #b08a5a; /* dorado más claro para que se lea sobre fondo oscuro */
+  --accent-color: #e05555;
+  --bg-color: #1a1a1a; /* ← faltaba esta línea */
   --section-bg: #262626;
   --text-color: #f0f0f0;
   --input-bg: #333333;
@@ -70,7 +71,7 @@ h3 {
 }
 
 ::selection {
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   color: white;
 }
 
@@ -250,7 +251,7 @@ header p {
   left: 0;
   height: 3px;
   width: 0%;
-  background: rgba(0, 0, 0, 0.385);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 /* Flechas — visibles solo en hover del carrusel */
@@ -585,78 +586,254 @@ header p {
 .rsvp-section {
   background-color: var(--section-bg);
   border-radius: 15px;
-  padding: 40px;
+  padding: 60px 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.rsvp-subtitle {
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  opacity: 0.5;
+  margin-bottom: 40px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 28px;
   max-width: 500px;
   margin: 0 auto;
   text-align: left;
 }
 
-input,
-select,
-textarea {
-  padding: 12px;
-  border: 1px solid var(--input-border);
-  border-radius: 5px;
-  background-color: var(--input-bg);
-  color: var(--text-color);
-  font-family: inherit;
-  font-size: 1rem;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
-}
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(109, 139, 116, 0.2);
-}
-
-/* Fieldset de radio (sin borde por defecto) */
-.radio-fieldset {
-  border: none;
-}
-.radio-fieldset legend {
-  font-size: 0.95rem;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-.radio-group {
-  display: flex;
+/* Fila de dos columnas */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
-.radio-group label {
+
+/* Campo con label flotante */
+.form-field {
+  position: relative;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--input-border);
+  border-radius: 0;
+  padding: 10px 0 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  outline: none;
+  transition: border-color 0.3s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-bottom-color: var(--primary-color);
+}
+.form-field label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  opacity: 0.4;
+  pointer-events: none;
+  transition:
+    top 0.2s,
+    font-size 0.2s,
+    color 0.2s,
+    opacity 0.2s;
+}
+
+/* Label sube cuando el campo tiene foco o contenido */
+.form-field input:focus ~ label,
+.form-field input:not(:placeholder-shown) ~ label,
+.form-field select:focus ~ label,
+.form-field textarea:focus ~ label,
+.form-field textarea:not(:placeholder-shown) ~ label,
+.form-field--filled label {
+  top: -14px;
+  font-size: 0.7rem;
+  color: var(--primary-color);
+  opacity: 1;
+}
+
+/* Opciones como botones (reemplaza radio buttons) */
+.radio-modern {
+  border: none;
+  padding: 0;
+}
+.radio-modern legend {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+.radio-modern .options {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  gap: 10px;
+}
+.radio-modern .option {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.85rem;
   cursor: pointer;
+  color: var(--text-color);
+  opacity: 0.6;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    color 0.2s,
+    opacity 0.2s;
+  user-select: none;
+}
+.radio-modern .option.selected {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+  color: white;
+  opacity: 1;
+}
+
+/* Flecha en el select */
+.form-field {
+  position: relative;
+}
+.form-field select {
+  padding-right: 20px;
+  cursor: pointer;
+}
+.form-field:has(select)::after {
+  content: "▾";
+  position: absolute;
+  right: 0;
+  top: 10px;
+  font-size: 12px;
+  color: var(--text-color);
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 /* Botón de enviar */
-.submit-btn {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 0;
+.submit-modern {
   width: 100%;
-  text-align: center;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    color 0.3s;
+  margin-top: 8px;
 }
-.submit-btn:hover {
-  background-color: var(--accent-color);
+.submit-modern:hover {
+  background: var(--accent-color);
+  border: var(--accent-color);
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+.menu-persona {
+  border-top: 1px solid var(--input-border);
+  padding-top: 20px;
+}
+.menu-persona:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Slider de acompañantes */
+.slider-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.slider-label {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+.slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.slider-wrap input[type="range"] {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: var(--input-border);
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+.slider-wrap input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.slider-wrap input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+.slider-wrap input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent-color);
+  cursor: pointer;
+}
+.slider-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  min-width: 20px;
+  text-align: right;
+}
+
+/* Colores por tipo de menú */
+.radio-modern .option[data-value="Estandar"].selected {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.radio-modern .option[data-value="Vegetariano"].selected {
+  background: #4a8c5c;
+  border-color: #4a8c5c;
+}
+.radio-modern .option[data-value="Infantil"].selected {
+  background: #5a7fb5;
+  border-color: #5a7fb5;
+}
 /* ==========================================================================
    11. FOOTER
    ========================================================================== */

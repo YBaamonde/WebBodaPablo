@@ -160,9 +160,9 @@
           <div class="icon">🚌</div>
           <h3>Transporte</h3>
           <p>
-            <strong>Salida:</strong> desde la estación de autobuses de Viveiro a las
-            11:30h.
-            <br>
+            <strong>Salida:</strong> desde la estación de autobuses de Viveiro a
+            las 11:30h.
+            <br />
             <strong> Vuelta:</strong> 2:00 de la mañana desde la finca.
           </p>
         </article>
@@ -295,71 +295,95 @@
     <!-- ================= RSVP ====================== -->
     <section id="rsvp" class="section-container rsvp-section">
       <h2 class="script-font">Confirmación de Asistencia</h2>
-      <p>Por favor, confirma antes del 15 de junio de 2026</p>
+      <p class="rsvp-subtitle">
+        Por favor, confirma antes del <strong><span style="font-size:1.3em;">15 de junio</span>.</strong>
+      </p>
 
       <form action="https://formspree.io/f/xqeyapyj" method="POST">
-        <label for="name">Nombre y Apellidos</label>
-        <input
-          type="text"
-          name="Invitado"
-          id="name"
-          required
-          pattern="^[a-zA-ZÀ-ÿ\s]{3,60}$"
-          placeholder="Tu nombre completo"
-        />
+        <div class="form-field">
+          <input
+            type="text"
+            name="Invitado"
+            id="name"
+            required
+            pattern="^[a-zA-ZÀ-ÿ\s]{3,60}$"
+            placeholder=" "
+          />
+          <label for="name">Nombre y apellidos</label>
+        </div>
 
-        <label for="attendance">¿Podrás acompañarnos?</label>
-        <select name="Asistencia" id="attendance" required>
-          <option value="" disabled selected>Selecciona una opción</option>
-          <option value="Confirmado">¡Sí, allí estaré!</option>
-          <option value="No_Asiste">Lamentablemente no puedo</option>
-        </select>
+        <fieldset class="radio-fieldset radio-modern">
+          <legend>¿Podrás acompañarnos?</legend>
+          <div class="options">
+            <label class="option">
+              <input
+                type="radio"
+                name="Asistencia"
+                value="Confirmado"
+                required
+                hidden
+              />
+              Sí, allí estaré
+            </label>
+            <label class="option">
+              <input type="radio" name="Asistencia" value="No_Asiste" hidden />
+              No puedo ir
+            </label>
+          </div>
+        </fieldset>
 
-        <label for="plus-one">¿Cuántos acompañantes traes?</label>
-        <input
-          type="number"
-          name="Acompañantes"
-          id="plus-one"
-          min="0"
-          max="15"
-          value="0"
-          step="1"
-        />
+        <div class="slider-field">
+            <span class="slider-label">Acompañantes</span>
+            <div class="slider-wrap">
+            <input type="range" id="plus-one" name="Acompañantes"
+      min="0" max="3" value="0" step="1" />
+            <span class="slider-value" id="plus-one-value">0</span>
+            </div>
+        </div>
+        <div id="menu-dinamico"></div>
 
-        <label for="alergias">Alergias o notas importantes</label>
-        <textarea
-          name="Alergias_Detalle"
-          id="alergias"
-          rows="2"
-          maxlength="200"
-        ></textarea>
+        <div class="form-field">
+          <textarea
+            name="Alergias_Detalle"
+            id="alergias"
+            rows="2"
+            maxlength="200"
+            placeholder=" "
+          ></textarea>
+          <label for="alergias">Alergias o notas importantes</label>
+        </div>
 
-        <fieldset class="radio-fieldset">
+        <fieldset class="radio-fieldset radio-modern">
           <legend>¿Vienes de Viveiro?</legend>
-          <div class="radio-group">
-            <label
-              ><input type="radio" name="Viveiro" value="No" checked />
-              No</label
-            >
-            <label><input type="radio" name="Viveiro" value="Si" /> Sí</label>
+          <div class="options">
+            <label class="option selected">
+              <input type="radio" name="Viveiro" value="No" checked hidden />
+              No
+            </label>
+            <label class="option">
+              <input type="radio" name="Viveiro" value="Si" hidden />
+              Sí
+            </label>
           </div>
         </fieldset>
 
         <div id="bus-question" class="hidden">
-          <fieldset class="radio-fieldset">
+          <fieldset class="radio-fieldset radio-modern">
             <legend>¿Necesitas plaza de autobús?</legend>
-            <div class="radio-group">
-              <label
-                ><input type="radio" name="Bus" value="No" checked /> No</label
-              >
-              <label><input type="radio" name="Bus" value="Si" /> Sí</label>
+            <div class="options">
+              <label class="option selected">
+                <input type="radio" name="Bus" value="No" checked hidden />
+                No
+              </label>
+              <label class="option">
+                <input type="radio" name="Bus" value="Si" hidden />
+                Sí
+              </label>
             </div>
           </fieldset>
         </div>
 
-        <button type="submit" class="cta-button submit-btn">
-          Enviar Confirmación
-        </button>
+        <button type="submit" class="submit-modern">Enviar confirmación</button>
       </form>
     </section>
 
