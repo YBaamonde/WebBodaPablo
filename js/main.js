@@ -92,7 +92,11 @@ document.querySelectorAll("section").forEach((section) => {
 
 (function () {
   const INTERVAL = 4500;
-  const IMAGE_PATH = "/media/Imagenes/";
+
+  const USE_COMPRESSED = true; // ← cambia a false para volver a los originales
+  const IMAGE_PATH = USE_COMPRESSED
+    ? "/media/Imagenes/compressed/"
+    : "/media/Imagenes/";
 
   const track = document.getElementById("historia-track");
   const progress = document.getElementById("historia-progress");
@@ -108,12 +112,17 @@ document.querySelectorAll("section").forEach((section) => {
       typeof entry === "string" ? "center" : (entry.position ?? "center");
     const zoom = typeof entry === "string" ? "cover" : (entry.zoom ?? "cover");
 
+    // Si usamos comprimidas, cambia la extensión a .webp
+    const filename = USE_COMPRESSED
+      ? file.replace(/\.(jpg|jpeg|png|avif)$/i, ".webp")
+      : file;
+
     const slide = document.createElement("div");
     slide.className = "carousel-slide";
-    slide.style.backgroundImage = `url(${IMAGE_PATH}${encodeURIComponent(file)})`; // ← codifica espacios y caracteres especiales
+    slide.style.backgroundImage = `url(${IMAGE_PATH}${encodeURIComponent(filename)})`;
     slide.style.backgroundSize = zoom;
     slide.style.backgroundPosition = position;
-    slide.style.backgroundRepeat = "no-repeat"; // ← evita el mosaico
+    slide.style.backgroundRepeat = "no-repeat";
     slide.setAttribute("aria-label", `Foto ${i + 1}`);
     track.appendChild(slide);
   });

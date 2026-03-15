@@ -1,4 +1,3 @@
-// Generado automáticamente — no editar a mano
 export const IMAGES = [
   {
     file: "foto-24.jpg",
