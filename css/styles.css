@@ -619,7 +619,6 @@ header p {
   margin: 0 auto;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   background: #1a1a1a;
 }
@@ -727,6 +726,7 @@ header p {
   color: var(primary-color);
   opacity: 0.5;
   margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 form {
@@ -985,34 +985,91 @@ footer {
    ========================================================================== */
 
 @media (max-width: 768px) {
+  /* --- Espaciado general --- */
   .section-container {
-    padding: 50px 20px;
+    padding: 50px 16px;
   }
 
-  .story-item,
-  .story-item.reverse {
+  /* --- RSVP --- */
+  .rsvp-section {
+    padding: 40px 20px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Tarjetas info --- */
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  .info-card {
+    padding: 24px 20px;
+  }
+
+  /* --- Mapas --- */
+  #donde {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Transporte --- */
+  .transport-toggle {
     flex-direction: column;
-    text-align: center;
+  }
+  .transport-btn {
+    width: 100%;
   }
 
-  /* Timeline en columna única */
-  .timeline::after {
-    left: 31px;
+  /* --- Timeline: columna única alineada a la izquierda --- */
+  .timeline::before {
+    left: 20px;
+    transform: none;
   }
   .timeline-event {
     width: 100%;
-    padding-left: 70px;
+    padding-left: 60px;
+    padding-right: 16px;
     text-align: left;
   }
   .timeline-event::after {
-    left: 22px;
+    left: 12px;
+    right: auto;
   }
   .timeline-event:nth-child(even) {
     left: 0;
+    text-align: left;
   }
-}
+  .timeline-event:nth-child(even)::after {
+    left: 12px;
+  }
+  .timeline-event:nth-child(odd) .timeline-icon {
+    margin-left: 0;
+  }
+  .timeline-icon {
+    width: 70px;
+    height: 70px;
+  }
 
-@media (max-width: 480px) {
+  /* --- Spotify --- */
+  .spotify-card {
+    max-width: 100%;
+  }
+  .sp-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .sp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* --- Header --- */
+  header p {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  /* --- Countdown --- */
   #countdown {
     gap: 10px;
   }
@@ -1022,5 +1079,40 @@ footer {
   }
   .countdown-item span {
     font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* --- Formulario muy pequeño --- */
+  .rsvp-section {
+    padding: 30px 14px;
+  }
+  .radio-modern .options {
+    flex-direction: column;
+  }
+  .radio-modern .option {
+    width: 100%;
+  }
+
+  /* --- Tarjetas de menú --- */
+  .menu-persona .options {
+    flex-direction: column;
+  }
+
+  /* --- Countdown --- */
+  .countdown-item span {
+    font-size: 1.5rem;
+  }
+  .countdown-item {
+    min-width: 60px;
+  }
+
+  /* --- Timeline más compacto --- */
+  .timeline-event {
+    padding-left: 50px;
+  }
+  .timeline-icon {
+    width: 55px;
+    height: 55px;
   }
 }
