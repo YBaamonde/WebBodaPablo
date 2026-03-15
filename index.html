@@ -42,7 +42,7 @@
 
     <!-- ================ CUENTA ATRÁS ================ -->
     <section id="countdown-section" class="section-container">
-      <h2 class="script-font">¡Ya falta poco!</h2>
+      <h2 class="script-font">¡Falta poco!</h2>
       <div id="countdown">
         <div class="countdown-item">
           <span id="days">00</span>
@@ -124,7 +124,7 @@
           <div class="info-logistica">
             <p>📍 <strong>Penas Corveiras</strong></p>
             <address>Paseo do Conde, 2, 27800 Vilalba, Lugo</address>
-            <p><strong>Salida a la finca:</strong> 15:00h</p>
+            <p><strong>Llegada a la finca:</strong> 15:00h</p>
           </div>
           <div class="map-responsive">
             <iframe
@@ -148,25 +148,43 @@
         <article class="info-card">
           <div class="icon">👗</div>
           <h3>Dress Code</h3>
-          <p>"Elegante pero cómodo: queremos veros guapísimos… y bailando"</p>
-          <span>Estilo: Formal / Cóctel</span>
+          <p>
+            Aunque vamos a celebrar la boda en una finca en el campo, nos
+            encantaría que vengas vestido de forma elegante acorde a una ocasión
+            especial.
+          </p>
         </article>
 
-        <article class="info-card">
+        <article class="info-card transport-card">
           <div class="icon">🚌</div>
           <h3>Transporte</h3>
-          <p>
-            <strong>Salida:</strong> desde la estación de autobuses de Viveiro a
-            las 11:30h.
-            <br />
-            <strong> Vuelta:</strong> 2:00 de la mañana desde la finca.
-          </p>
+          <div class="transport-toggle">
+            <button class="transport-btn active" data-target="coche">
+              🚗 Voy en coche
+            </button>
+            <button class="transport-btn" data-target="bus">
+              🚌 Voy en bus desde Viveiro
+            </button>
+          </div>
+          <div class="transport-info" id="info-coche">
+            <p>
+              Se habilitará un espacio de aparcamiento en la finca.
+              Aquí estará la ubicación cuando se aproxime la fecha.
+            </p>
+          </div>
+          <div class="transport-info hidden" id="info-bus">
+            <p>
+              <strong>Salida:</strong> desde la estación de autobuses de Viveiro
+              a las 11:30h.
+            </p>
+            <p><strong>Vuelta:</strong> 2:00 de la mañana desde la finca.</p>
+          </div>
         </article>
 
         <article class="info-card">
           <div class="icon">🏨</div>
           <h3>Alojamiento</h3>
-          <p>Hoteles recomendados (reserva con antelación):</p>
+          <p>Os recomendamos algunos hoteles <br>(reserva con antelación):</p>
           <ul class="hotel-list">
             <li>
               <a
@@ -201,72 +219,111 @@
         </article>
       </div>
 
-      <div class="timeline-container">
-        <h3 class="script-font">Cronograma del Día</h3>
-        <div class="timeline">
-          <div class="timeline-event">
-            <div class="timeline-time">13:00</div>
-            <div class="timeline-content">
-              <h4>Ceremonia</h4>
-              <p>El "Sí, quiero" en la iglesia.</p>
-            </div>
-          </div>
-          <div class="timeline-event">
-            <div class="timeline-time">15:00</div>
-            <div class="timeline-content">
-              <h4>Salida a la finca</h4>
-              <p>Salida del lugar de la ceremonia hacia la finca.</p>
-            </div>
-          </div>
-          <div class="timeline-event">
-            <div class="timeline-time">15:15</div>
-            <div class="timeline-content">
-              <h4>Aperitivo</h4>
-              <p>Para matar el gusanillo.</p>
-            </div>
-          </div>
-          <div class="timeline-event">
-            <div class="timeline-time">15:45</div>
-            <div class="timeline-content">
-              <h4>Fotos</h4>
-              <p>Fotos con los novios.</p>
-            </div>
-          </div>
-          <div class="timeline-event">
-            <div class="timeline-time">17:30</div>
-            <div class="timeline-content">
-              <h4>Banquete</h4>
-              <p>A disfrutar de la comida.</p>
-            </div>
-          </div>
-          <div class="timeline-event">
-            <div class="timeline-time">20:30</div>
-            <div class="timeline-content">
-              <h4>Primer baile</h4>
-              <p>El baile de los novios.</p>
-            </div>
-          </div>
-          <div class="timeline-event">
-            <div class="timeline-time">21:30</div>
-            <div class="timeline-content">
-              <h4>Fiesta</h4>
-              <p>¡A bailar!</p>
-            </div>
-          </div>
-          <div class="timeline-event">
-            <div class="timeline-time">23:00</div>
-            <div class="timeline-content">
-              <h4>Recena</h4>
-              <p>Para reponer fuerzas.</p>
-            </div>
-          </div>
-          <div class="timeline-event">
-            <div class="timeline-time">01:30</div>
-            <div class="timeline-content">
-              <h4>Fin de la fiesta</h4>
-              <p>Todos a casa.</p>
-            </div>
-          </div>
+      <div class="timeline-event">
+        <div class="timeline-time">13:00</div>
+        <div class="timeline-content">
+          <img
+            src="media/Dibujos/cronograma1.png"
+            class="timeline-icon"
+            alt=""
+          />
+          <h4>Ceremonia</h4>
+        </div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-time">15:00</div>
+        <div class="timeline-content">
+          <img
+            src="media/Dibujos/cronograma2.png"
+            class="timeline-icon"
+            alt=""
+          />
+          <h4>Salida a la finca</h4>
+        </div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-time">15:15</div>
+        <div class="timeline-content">
+          <img
+            src="media/Dibujos/cronograma3.png"
+            class="timeline-icon"
+            alt=""
+          />
+          <h4>Aperitivo</h4>
+        </div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-time">15:45</div>
+        <div class="timeline-content">
+          <img
+            src="media/Dibujos/cronograma4.png"
+            class="timeline-icon"
+            alt=""
+          />
+          <h4>Fotos con los novios</h4>
+        </div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-time">17:30</div>
+        <div class="timeline-content">
+          <img
+            src="media/Dibujos/cronograma5.png"
+            class="timeline-icon"
+            alt=""
+          />
+          <h4>Banquete</h4>
+        </div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-time">20:30</div>
+        <div class="timeline-content">
+          <img
+            src="media/Dibujos/cronograma6.png"
+            class="timeline-icon"
+            alt=""
+          />
+          <h4>Primer baile</h4>
+        </div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-time">21:30</div>
+        <div class="timeline-content">
+          <img
+            src="media/Dibujos/cronograma7.png"
+            class="timeline-icon"
+            alt=""
+          />
+          <h4>Fiesta</h4>
+        </div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-time">23:00</div>
+        <div class="timeline-content">
+          <img
+            src="media/Dibujos/cronograma8.png"
+            class="timeline-icon"
+            alt=""
+          />
+          <h4>Recena</h4>
+        </div>
+      </div>
+
+      <div class="timeline-event">
+        <div class="timeline-time">01:30</div>
+        <div class="timeline-content">
+          <img
+            src="media/Dibujos/cronograma9.png"
+            class="timeline-icon"
+            alt=""
+          />
+          <h4>Fin de la fiesta</h4>
         </div>
       </div>
     </section>
@@ -292,7 +349,8 @@
     <section id="rsvp" class="section-container rsvp-section">
       <h2 class="script-font">Confirmación de Asistencia</h2>
       <p class="rsvp-subtitle">
-        Por favor, confirma antes del <strong><span style="font-size:1.3em;">15 de junio</span>.</strong>
+        Por favor, confirma antes del
+        <strong><span style="font-size: 1.3em">15 de junio</span>.</strong>
       </p>
 
       <form action="https://formspree.io/f/xqeyapyj" method="POST">
@@ -329,12 +387,19 @@
         </fieldset>
 
         <div class="slider-field">
-            <span class="slider-label">Acompañantes</span>
-            <div class="slider-wrap">
-            <input type="range" id="plus-one" name="Acompañantes"
-      min="0" max="3" value="0" step="1" />
+          <span class="slider-label">Acompañantes</span>
+          <div class="slider-wrap">
+            <input
+              type="range"
+              id="plus-one"
+              name="Acompañantes"
+              min="0"
+              max="3"
+              value="0"
+              step="1"
+            />
             <span class="slider-value" id="plus-one-value">0</span>
-            </div>
+          </div>
         </div>
         <div id="menu-dinamico"></div>
 

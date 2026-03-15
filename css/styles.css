@@ -3,7 +3,7 @@
    ========================================================================== */
 @font-face {
   font-family: "Medicall";
-  src: url("../media/Fuentes/medicall.ttf") format("truetype");
+  src: url("/media/Fuentes/medicall.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -19,7 +19,7 @@
 
 :root {
   --primary-color: #c55e57;
-  --accent-color: #c2c5b0; /* ← nuevo color de acento */
+  --accent-color: #af534c; /* ← nuevo color de acento */
   --bg-color: #f9f9f9;
   --section-bg: #ffffff;
   --text-color: #444444;
@@ -31,8 +31,8 @@
 }
 
 [data-theme="dark"] {
-  --primary-color: #c2c5b0;
-  --accent-color: #c55e57;
+  --primary-color: #c55e57;
+  --accent-color: #af534c;
   --bg-color: #1a1a1a; /* ← faltaba esta línea */
   --section-bg: #262626;
   --text-color: #f0f0f0;
@@ -66,7 +66,7 @@ html {
 body {
   font-family: "ManlyMen BB", sans-serif;
   background-color: var(--bg-color);
-  background-image: url("/media/Imagenes/fondo1.avif");
+  background-image: url("/media/Imagenes/porVer.avif");
   background-repeat: repeat;
   color: var(--text-color);
   line-height: 1.6;
@@ -83,7 +83,7 @@ h3 {
 }
 
 .script-font {
-  font-family: "ManlyMen BB";
+  font-family: "Medicall", cursive;
   font-weight: normal;
 }
 
@@ -545,16 +545,65 @@ header p {
   color: var(--accent-color);
 }
 
-/* Nota de adultos */
-.kids-notice {
-  margin-top: 40px;
-  padding: 16px 24px;
-  background-color: var(--card-bg);
-  border-left: 4px solid var(--accent-color);
-  border-radius: 8px;
-  text-align: left;
-  max-width: 600px;
-  margin-inline: auto;
+.timeline-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 8px;
+  display: block;
+}
+.timeline-event:nth-child(odd) .timeline-icon {
+  margin-left: auto;
+}
+
+/* Toggle de transporte */
+.transport-toggle {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+.transport-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    color 0.2s,
+    opacity 0.2s;
+}
+.transport-btn.active {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+  color: white;
+  opacity: 1;
+}
+.transport-info {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  animation: fadeIn 0.3s ease;
+}
+.transport-info p + p {
+  margin-top: 6px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================================================

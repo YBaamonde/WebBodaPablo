@@ -294,3 +294,23 @@ document.querySelectorAll(".radio-modern .options").forEach(activarRadioModern);
     { passive: true },
   );
 })();
+
+/* ==========================================================================
+   9. TOGGLE DE TRANSPORTE
+   ========================================================================== */
+
+document.querySelectorAll(".transport-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const target = btn.dataset.target;
+
+    document
+      .querySelectorAll(".transport-btn")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    document
+      .querySelectorAll(".transport-info")
+      .forEach((info) => info.classList.add("hidden"));
+    document.getElementById(`info-${target}`).classList.remove("hidden");
+  });
+});
