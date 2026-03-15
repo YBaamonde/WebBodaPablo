@@ -312,7 +312,7 @@ const confirmacion = document.getElementById("cuenta-confirmacion");
 
 if (copiarBtn) {
   copiarBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText("ES00 0000 0000 0000 0000 0000");
+    navigator.clipboard.writeText("ES33 3058 0990 2527 6357 3607");
     confirmacion.classList.remove("hidden");
     copiarBtn.textContent = "Copiado";
     setTimeout(() => {
