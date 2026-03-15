@@ -1,10 +1,25 @@
 /* ==========================================================================
    1. VARIABLES DE COLOR Y TEMA
    ========================================================================== */
+@font-face {
+  font-family: "Medicall";
+  src: url("../media/Fuentes/medicall.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ManlyMen BB";
+  src: url("/media/Fuentes/ManlyMenBB.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --primary-color: #8c6a3a;
-  --accent-color: #ce3334; /* ← nuevo color de acento */
+  --primary-color: #c55e57;
+  --accent-color: #c2c5b0; /* ← nuevo color de acento */
   --bg-color: #f9f9f9;
   --section-bg: #ffffff;
   --text-color: #444444;
@@ -16,8 +31,8 @@
 }
 
 [data-theme="dark"] {
-  --primary-color: #b08a5a; /* dorado más claro para que se lea sobre fondo oscuro */
-  --accent-color: #e05555;
+  --primary-color: #c2c5b0;
+  --accent-color: #c55e57;
   --bg-color: #1a1a1a; /* ← faltaba esta línea */
   --section-bg: #262626;
   --text-color: #f0f0f0;
@@ -49,7 +64,7 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "ManlyMen BB", sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -66,8 +81,8 @@ h3 {
 }
 
 .script-font {
-  font-family: "Great Vibes", cursive;
-  font-weight: 400;
+  font-family: "ManlyMen BB";
+  font-weight: normal;
 }
 
 ::selection {
