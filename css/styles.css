@@ -22,7 +22,6 @@
   --accent-color: #af534c; /* ← nuevo color de acento */
   --bg-color: #f9f9f9;
   --section-bg: #ffffff;
-  primary-color: #444444;
   --input-bg: #ffffff;
   --input-border: #dddddd;
   --card-bg: #f9f9f9;
@@ -306,8 +305,7 @@ header p {
 }
 .countdown-item {
   flex: 1;
-  min-width: 80px;
-  max-width: 120px;
+  max-width: 70px;
   padding: 20px 10px;
   background: var(--card-bg);
   border-radius: 12px;
@@ -753,10 +751,7 @@ header p {
    ========================================================================== */
 
 .rsvp-section {
-  background-color: var(--section-bg);
-  border-radius: 15px;
-  padding: 60px 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 60px 40px;
 }
 
 .rsvp-subtitle {
@@ -773,7 +768,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  max-width: 500px;
+  max-width: 300px;
   margin: 0 auto;
   text-align: left;
 }
@@ -1016,15 +1011,21 @@ form {
 
   /* --- RSVP --- */
   .rsvp-section {
-    padding: 40px 20px;
+    padding: 40px 16px;
   }
   .form-row {
     grid-template-columns: 1fr;
   }
 
   /* --- Tarjetas --- */
+
+  #donde {
+    padding: 0 20px;
+  }
+
   .info-grid {
     grid-template-columns: 1fr;
+    padding: 0 20px;
   }
   .info-card {
     padding: 24px 20px;
@@ -1041,35 +1042,57 @@ form {
     width: 100%;
   }
 
-  /* --- Timeline: columna única a la izquierda --- */
-  .timeline::before {
-    left: 20px;
-    transform: none;
-  }
-  .timeline-event {
-    width: 100%;
-    padding-left: 60px;
-    padding-right: 16px;
+  /* --- Timeline: columna única centrada --- */
+ /* --- Timeline: centrado con dos columnas --- */
+.timeline-container {
+    margin-top: 60px;
+}
+
+.timeline {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-event {
+    width: 50%;
+    padding: 10px 16px;
+    text-align: right;
+}
+
+.timeline-event::after {
+    right: -8px;
+    left: auto;
+}
+
+.timeline-event:nth-child(even) {
+    left: 50%;
     text-align: left;
-  }
-  .timeline-event::after {
-    left: 12px;
+}
+
+.timeline-event:nth-child(even)::after {
+    left: -8px;
     right: auto;
-  }
-  .timeline-event:nth-child(even) {
-    left: 0;
-    text-align: left;
-  }
-  .timeline-event:nth-child(even)::after {
-    left: 12px;
-  }
-  .timeline-event:nth-child(odd) .timeline-icon {
-    margin-left: 0;
-  }
-  .timeline-icon {
-    width: 70px;
-    height: 70px;
-  }
+}
+
+.timeline-event:nth-child(odd) .timeline-icon {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.timeline-time {
+    font-size: 0.95rem;
+}
+
+.timeline-icon {
+    width: 55px;
+    height: 55px;
+}
 
   /* --- Spotify --- */
   .spotify-card {
