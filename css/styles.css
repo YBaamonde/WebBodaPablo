@@ -66,8 +66,10 @@ html {
 body {
   font-family: "ManlyMen BB", sans-serif;
   background-color: var(--bg-color);
-  background-image: url("/media/Imagenes/porVer.avif");
-  background-repeat: repeat;
+  background-image: url("/media/Imagenes/compressed/fondo papel.webp");
+  background-repeat: repeat-y;
+  background-size: 100vw auto;
+  background-position: center top;
   color: var(--primary-color);
   line-height: 1.6;
   overflow-x: hidden;
