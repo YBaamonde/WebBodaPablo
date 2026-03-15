@@ -28,15 +28,6 @@ themeToggle.addEventListener("click", () => {
 });
 
 /* ==========================================================================
-   3. FORMULARIO: deshabilitar escritura en el campo de acompañantes
-   ========================================================================== */
-
-const plusOneInput = document.getElementById("plus-one");
-if (plusOneInput) {
-  plusOneInput.addEventListener("keydown", (e) => e.preventDefault());
-}
-
-/* ==========================================================================
    4. CUENTA ATRÁS
    ========================================================================== */
 
@@ -166,24 +157,120 @@ document.querySelectorAll("section").forEach((section) => {
 })();
 
 /* ==========================================================================
-   7. FORMULARIO: mostrar pregunta de autobús solo si viene de Viveiro
+   7. FORMULARIO: menús dinámicos y lógica de autobús
    ========================================================================== */
 
-document.querySelectorAll('input[name="Viveiro"]').forEach((radio) => {
-  radio.addEventListener("change", (e) => {
-    const busQuestion = document.getElementById("bus-question");
-    const busInputs = busQuestion.querySelectorAll('input[name="Bus"]');
+const MENU_OPCIONES = [
+  { value: "Estandar", label: "Menú Estándar" },
+  { value: "Vegetariano", label: "Menú Vegetariano" },
+  { value: "Infantil", label: "Menú Infantil" },
+];
 
-    if (e.target.value === "Si") {
-      busQuestion.classList.remove("hidden");
-    } else {
-      busQuestion.classList.add("hidden");
-      busInputs.forEach((input) => {
-        if (input.value === "No") input.checked = true;
-      });
-    }
+function crearSelectorMenu(nombre, inputName, index) {
+  const wrap = document.createElement("div");
+  wrap.className = "menu-persona radio-modern";
+
+  const legend = document.createElement("legend");
+  legend.textContent = nombre;
+  wrap.appendChild(legend);
+
+  const options = document.createElement("div");
+  options.className = "options";
+
+  MENU_OPCIONES.forEach((op, i) => {
+    const label = document.createElement("label");
+    label.className = "option" + (i === 0 ? " selected" : "");
+    label.dataset.value = op.value; // ← añade esto
+
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = inputName;
+    input.value = op.value;
+    input.style.display = "none";
+    if (i === 0) input.checked = true;
+
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(op.label));
+    options.appendChild(label);
   });
-});
+
+  wrap.appendChild(options);
+
+  // Lógica de selección visual
+  options.querySelectorAll(".option").forEach((option) => {
+    option.addEventListener("click", () => {
+      options
+        .querySelectorAll(".option")
+        .forEach((o) => o.classList.remove("selected"));
+      option.classList.add("selected");
+      option.querySelector('input[type="radio"]').checked = true;
+    });
+  });
+
+  return wrap;
+}
+
+function actualizarMenus() {
+  const n = parseInt(document.getElementById("plus-one").value) || 0;
+  const contenedor = document.getElementById("menu-dinamico");
+  contenedor.innerHTML = "";
+
+  // Menú del titular
+  contenedor.appendChild(crearSelectorMenu("Tu menú", "Menu_0", 0));
+
+  // Menú de cada acompañante
+  for (let i = 1; i <= n; i++) {
+    contenedor.appendChild(
+      crearSelectorMenu(`Acompañante ${i}`, `Menu_${i}`, i),
+    );
+  }
+}
+
+// Inicializa al cargar
+actualizarMenus();
+
+// Actualiza al cambiar número de acompañantes
+const inputAcompanantes = document.getElementById("plus-one");
+const valorAcompanantes = document.getElementById("plus-one-value");
+
+if (inputAcompanantes) {
+  inputAcompanantes.addEventListener("keydown", (e) => e.preventDefault());
+  inputAcompanantes.addEventListener("input", () => {
+    valorAcompanantes.textContent = inputAcompanantes.value;
+    actualizarMenus();
+  });
+}
+
+// Opciones visuales para otros radio-modern (asistencia, viveiro, bus)
+function activarRadioModern(group) {
+  group.querySelectorAll(".option").forEach((option) => {
+    option.addEventListener("click", () => {
+      group
+        .querySelectorAll(".option")
+        .forEach((o) => o.classList.remove("selected"));
+      option.classList.add("selected");
+      option.querySelector('input[type="radio"]').checked = true;
+
+      // Lógica Viveiro → autobús
+      const radio = option.querySelector('input[name="Viveiro"]');
+      if (radio) {
+        const busQuestion = document.getElementById("bus-question");
+        const busOptions = busQuestion.querySelectorAll(".option");
+
+        if (radio.value === "Si") {
+          busQuestion.classList.remove("hidden");
+        } else {
+          busQuestion.classList.add("hidden");
+          busOptions.forEach((o) => o.classList.remove("selected"));
+          busOptions[0].classList.add("selected");
+          busOptions[0].querySelector('input[type="radio"]').checked = true;
+        }
+      }
+    });
+  });
+}
+
+document.querySelectorAll(".radio-modern .options").forEach(activarRadioModern);
 
 /* ==========================================================================
    8. FADE DE SALIDA DEL HEADER AL HACER SCROLL
@@ -207,3 +294,23 @@ document.querySelectorAll('input[name="Viveiro"]').forEach((radio) => {
     { passive: true },
   );
 })();
+
+/* ==========================================================================
+   9. TOGGLE DE TRANSPORTE
+   ========================================================================== */
+
+document.querySelectorAll(".transport-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const target = btn.dataset.target;
+
+    document
+      .querySelectorAll(".transport-btn")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    document
+      .querySelectorAll(".transport-info")
+      .forEach((info) => info.classList.add("hidden"));
+    document.getElementById(`info-${target}`).classList.remove("hidden");
+  });
+});

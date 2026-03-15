@@ -4,17 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nuestra Boda | Paula & Pablo</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="https://fav.farm/💍" />
 
-    <meta property="og:title" content="¡Nos Casamos! - Paula & Pablo 2026" />
+    <meta property="og:title" content="Nos Casamos! - Paula & Pablo 2026" />
     <meta
       property="og:description"
-      content="Acompáñanos en nuestro gran día. Toda la información aquí."
+      content="Acompananos en nuestro gran dia. Toda la informacion aqui."
     />
     <meta property="og:image" content="URL_DE_TU_FOTO_PRINCIPAL" />
     <meta property="og:url" content="URL_DE_TU_WEB" />
@@ -37,20 +33,25 @@
       <div class="header-overlay"></div>
 
       <div class="header-content">
-        <p>¡Nos casamos!</p>
-        <h1 class="script-font">Paula & Pablo</h1>
+        <p>Nos casamos!</p>
+        <img
+          src="media/Dibujos/5.png"
+          alt="Nombres"
+          class="rings-icon"
+          style="width: 250px; height: auto"
+        />
         <p>18 de Julio de 2026 • Vilalba, Lugo</p>
         <a href="#rsvp" class="cta-button">Confirmar Asistencia</a>
       </div>
     </header>
 
-    <!-- ================ CUENTA ATRÁS ================ -->
+    <!-- ================ CUENTA ATRAS ================ -->
     <section id="countdown-section" class="section-container">
-      <h2 class="script-font">¡Ya falta poco!</h2>
+      <h2 class="script-font">Falta poco!</h2>
       <div id="countdown">
         <div class="countdown-item">
           <span id="days">00</span>
-          <p>Días</p>
+          <p>Dias</p>
         </div>
         <div class="countdown-item">
           <span id="hours">00</span>
@@ -92,19 +93,19 @@
       </div>
 
       <div class="historia-text">
-        <p>Doce años después, seguimos diciendo sí a la aventura.</p>
+        <p>Doce anos despues, seguimos diciendo si a la aventura.</p>
       </div>
     </section>
 
-    <!-- ================= LOGÍSTICA ================== -->
+    <!-- ================= LOGISTICA ================== -->
     <section id="logistica" class="section-container">
-      <h2 class="script-font section-title">El Gran Día</h2>
+      <h2 class="script-font section-title">El Gran Dia</h2>
 
       <div id="donde">
         <div class="location-card">
           <div class="info-logistica">
-            <p>📍 <strong>Iglesia de Sta. María</strong></p>
-            <address>Pl. Sta. María, 6, 27800 Vilalba, Lugo</address>
+            <p>📍 <strong>Iglesia de Sta. Maria</strong></p>
+            <address>Pl. Sta. Maria, 6, 27800 Vilalba, Lugo</address>
             <p><strong>Ceremonia:</strong> 13:00h</p>
           </div>
           <div class="map-responsive">
@@ -113,7 +114,7 @@
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
-              title="Localización provisional"
+              title="Localizacion provisional"
             ></iframe>
           </div>
           <a
@@ -126,9 +127,9 @@
 
         <div class="location-card">
           <div class="info-logistica">
-            <p>📍 <strong>Penas Corbeiras</strong></p>
+            <p>📍 <strong>Penas Corveiras</strong></p>
             <address>Paseo do Conde, 2, 27800 Vilalba, Lugo</address>
-            <p><strong>Salida a la finca:</strong> 15:00h</p>
+            <p><strong>Llegada a la finca:</strong> 15:00h</p>
           </div>
           <div class="map-responsive">
             <iframe
@@ -136,7 +137,7 @@
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
-              title="Localización de Penas Corbeiras en Google Maps"
+              title="Localizacion de Penas Corveiras en Google Maps"
             ></iframe>
           </div>
           <a
@@ -150,27 +151,65 @@
 
       <div class="info-grid">
         <article class="info-card">
-          <div class="icon">👗</div>
+          <div class="image">
+            <img
+              src="media/Dibujos/43.png"
+              alt="Dress Code"
+              class="dressCode-image"
+              style="width: 80px"
+            />
+          </div>
           <h3>Dress Code</h3>
-          <p>"Elegante pero cómodo: queremos veros guapísimos… y bailando"</p>
-          <span>Estilo: Formal / Cóctel</span>
-        </article>
-
-        <article class="info-card">
-          <div class="icon">🚌</div>
-          <h3>Transporte</h3>
           <p>
-            <strong>Salida:</strong> desde la estación de autobuses de Viveiro a las
-            11:30h.
-            <br>
-            <strong> Vuelta:</strong> 2:00 de la mañana desde la finca.
+            Aunque vamos a celebrar la boda en el campo, nos encantaria que
+            vengas vestido de forma elegante, acorde a una ocasion especial.
           </p>
         </article>
 
+        <article class="info-card transport-card">
+          <div class="image">
+            <img
+              src="media/Dibujos/42.png"
+              alt="Transporte"
+              class="transport-image"
+              style="width: 80px"
+            />
+          </div>
+          <h3>Transporte</h3>
+          <div class="transport-toggle">
+            <button class="transport-btn active" data-target="coche">
+              🚗 Voy en coche
+            </button>
+            <button class="transport-btn" data-target="bus">
+              🚌 Voy en bus desde Viveiro
+            </button>
+          </div>
+          <div class="transport-info" id="info-coche">
+            <p>
+              Se habilitara un espacio de aparcamiento en la finca. Aqui estara
+              la ubicacion cuando se aproxime la fecha.
+            </p>
+          </div>
+          <div class="transport-info hidden" id="info-bus">
+            <p>
+              <strong>Salida:</strong> desde la estacion de autobuses de Viveiro
+              a las 11:30h.
+            </p>
+            <p><strong>Vuelta:</strong> 2:00 de la manana desde la finca.</p>
+          </div>
+        </article>
+
         <article class="info-card">
-          <div class="icon">🏨</div>
+          <div class="image">
+            <img
+              src="media/Dibujos/cronograma9.png"
+              alt="Alojamiento"
+              class="alojamiento-image"
+              style="width: 80px"
+            />
+          </div>
           <h3>Alojamiento</h3>
-          <p>Hoteles recomendados (reserva con antelación):</p>
+          <p>Os recomendamos algunos hoteles <br />(reserva con antelacion):</p>
           <ul class="hotel-list">
             <li>
               <a
@@ -206,169 +245,247 @@
       </div>
 
       <div class="timeline-container">
-        <h3 class="script-font">Cronograma del Día</h3>
+        <h3 class="script-font">Cronograma del Dia</h3>
         <div class="timeline">
           <div class="timeline-event">
             <div class="timeline-time">13:00</div>
             <div class="timeline-content">
+              <img
+                src="media/Dibujos/cronograma1.png"
+                class="timeline-icon"
+                alt=""
+              />
               <h4>Ceremonia</h4>
-              <p>El "Sí, quiero" en la iglesia.</p>
             </div>
           </div>
+
           <div class="timeline-event">
             <div class="timeline-time">15:00</div>
             <div class="timeline-content">
+              <img
+                src="media/Dibujos/cronograma2.png"
+                class="timeline-icon"
+                alt=""
+              />
               <h4>Salida a la finca</h4>
-              <p>Salida del lugar de la ceremonia hacia la finca.</p>
             </div>
           </div>
+
           <div class="timeline-event">
             <div class="timeline-time">15:15</div>
             <div class="timeline-content">
+              <img
+                src="media/Dibujos/cronograma3.png"
+                class="timeline-icon"
+                alt=""
+              />
               <h4>Aperitivo</h4>
-              <p>Para matar el gusanillo.</p>
             </div>
           </div>
+
           <div class="timeline-event">
             <div class="timeline-time">15:45</div>
             <div class="timeline-content">
-              <h4>Fotos</h4>
-              <p>Fotos con los novios.</p>
+              <img
+                src="media/Dibujos/cronograma4.png"
+                class="timeline-icon"
+                alt=""
+              />
+              <h4>Fotos con los novios</h4>
             </div>
           </div>
+
           <div class="timeline-event">
             <div class="timeline-time">17:30</div>
             <div class="timeline-content">
+              <img
+                src="media/Dibujos/cronograma5.png"
+                class="timeline-icon"
+                alt=""
+              />
               <h4>Banquete</h4>
-              <p>A disfrutar de la comida.</p>
             </div>
           </div>
+
           <div class="timeline-event">
             <div class="timeline-time">20:30</div>
             <div class="timeline-content">
+              <img
+                src="media/Dibujos/cronograma6.png"
+                class="timeline-icon"
+                alt=""
+              />
               <h4>Primer baile</h4>
-              <p>El baile de los novios.</p>
             </div>
           </div>
+
           <div class="timeline-event">
             <div class="timeline-time">21:30</div>
             <div class="timeline-content">
+              <img
+                src="media/Dibujos/cronograma7.png"
+                class="timeline-icon"
+                alt=""
+              />
               <h4>Fiesta</h4>
-              <p>¡A bailar!</p>
             </div>
           </div>
+
           <div class="timeline-event">
             <div class="timeline-time">23:00</div>
             <div class="timeline-content">
+              <img
+                src="media/Dibujos/cronograma8.png"
+                class="timeline-icon"
+                alt=""
+              />
               <h4>Recena</h4>
-              <p>Para reponer fuerzas.</p>
             </div>
           </div>
+
           <div class="timeline-event">
             <div class="timeline-time">01:30</div>
             <div class="timeline-content">
+              <img
+                src="media/Dibujos/cronograma9.png"
+                class="timeline-icon"
+                alt=""
+              />
               <h4>Fin de la fiesta</h4>
-              <p>Todos a casa.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= MÚSICA ==================== -->
+    <!-- ================= MUSICA ==================== -->
     <section id="musica" class="section-container">
       <div class="spotify-card">
-        <div class="spotify-icon">🎵</div>
-        <h2 class="script-font spotify-title">¿Nos ayudas con la música?</h2>
-        <p class="spotify-description">
-          Añade tus canciones favoritas a la playlist oficial.
-        </p>
-        <a
-          href="https://open.spotify.com/playlist/0d3BYbLwqnk7Fgi94kTDsk?si=342e093d6b4e4ce4"
-          target="_blank"
-          class="spotify-button"
-          >Abrir en Spotify</a
-        >
+        <div class="sp-cover">
+          <img src="media/Imagenes/foto-24.jpg" alt="Playlist Paula & Pablo" />
+          <div class="sp-cover-label">
+            <div class="sp-dot"></div>
+            Playlist oficial
+          </div>
+        </div>
+        <div class="sp-body">
+          <div class="sp-info">
+            <p class="sp-title">Nos ayudas con la musica?</p>
+            <p class="sp-sub">Anade tus canciones favoritas</p>
+          </div>
+          <a
+            href="https://open.spotify.com/playlist/0d3BYbLwqnk7Fgi94kTDsk?si=342e093d6b4e4ce4"
+            target="_blank"
+            class="sp-btn"
+          >
+            <span class="sp-icon">▶</span> Abrir
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- ================= RSVP ====================== -->
     <section id="rsvp" class="section-container rsvp-section">
-      <h2 class="script-font">Confirmación de Asistencia</h2>
-      <p>Por favor, confirma antes del 15 de junio de 2026</p>
+      <h2 class="script-font">Confirmacion de Asistencia</h2>
+      <p class="rsvp-subtitle">
+        Por favor, confirma antes del
+        <strong><span style="font-size: 1.3em">15 de junio</span>.</strong>
+      </p>
 
       <form action="https://formspree.io/f/xqeyapyj" method="POST">
-        <label for="name">Nombre y Apellidos</label>
-        <input
-          type="text"
-          name="Invitado"
-          id="name"
-          required
-          pattern="^[a-zA-ZÀ-ÿ\s]{3,60}$"
-          placeholder="Tu nombre completo"
-        />
+        <div class="form-field">
+          <input
+            type="text"
+            name="Invitado"
+            id="name"
+            required
+            pattern="^[a-zA-ZÀ-ÿ\s]{3,60}$"
+            placeholder=" "
+          />
+          <label for="name">Nombre y apellidos</label>
+        </div>
 
-        <label for="attendance">¿Podrás acompañarnos?</label>
-        <select name="Asistencia" id="attendance" required>
-          <option value="" disabled selected>Selecciona una opción</option>
-          <option value="Confirmado">¡Sí, allí estaré!</option>
-          <option value="No_Asiste">Lamentablemente no puedo</option>
-        </select>
+        <fieldset class="radio-fieldset radio-modern">
+          <legend>Podras acompanarnos?</legend>
+          <div class="options">
+            <label class="option">
+              <input
+                type="radio"
+                name="Asistencia"
+                value="Confirmado"
+                required
+                hidden
+              />
+              Si, alli estare
+            </label>
+            <label class="option">
+              <input type="radio" name="Asistencia" value="No_Asiste" hidden />
+              No puedo ir
+            </label>
+          </div>
+        </fieldset>
 
-        <label for="plus-one">¿Cuántos acompañantes traes?</label>
-        <input
-          type="number"
-          name="Acompañantes"
-          id="plus-one"
-          min="0"
-          max="15"
-          value="0"
-          step="1"
-        />
+        <div class="slider-field">
+          <span class="slider-label">Acompanantes</span>
+          <div class="slider-wrap">
+            <input
+              type="range"
+              id="plus-one"
+              name="Acompanantes"
+              min="0"
+              max="3"
+              value="0"
+              step="1"
+            />
+            <span class="slider-value" id="plus-one-value">0</span>
+          </div>
+        </div>
+        <div id="menu-dinamico"></div>
 
-        <label for="alergias">Alergias o notas importantes</label>
-        <textarea
-          name="Alergias_Detalle"
-          id="alergias"
-          rows="2"
-          maxlength="200"
-        ></textarea>
+        <div class="form-field">
+          <textarea
+            name="Alergias_Detalle"
+            id="alergias"
+            rows="2"
+            maxlength="200"
+            placeholder=" "
+          ></textarea>
+          <label for="alergias">Alergias o notas importantes</label>
+        </div>
 
-        <fieldset class="radio-fieldset">
-          <legend>¿Vienes de Viveiro?</legend>
-          <div class="radio-group">
-            <label
-              ><input type="radio" name="Viveiro" value="No" checked />
-              No</label
-            >
-            <label><input type="radio" name="Viveiro" value="Si" /> Sí</label>
+        <fieldset class="radio-fieldset radio-modern">
+          <legend>Vienes de Viveiro?</legend>
+          <div class="options">
+            <label class="option selected">
+              <input type="radio" name="Viveiro" value="No" checked hidden />
+              No
+            </label>
+            <label class="option">
+              <input type="radio" name="Viveiro" value="Si" hidden />
+              Si
+            </label>
           </div>
         </fieldset>
 
         <div id="bus-question" class="hidden">
-          <fieldset class="radio-fieldset">
-            <legend>¿Necesitas plaza de autobús?</legend>
-            <div class="radio-group">
-              <label
-                ><input type="radio" name="Bus" value="No" checked /> No</label
-              >
-              <label><input type="radio" name="Bus" value="Si" /> Sí</label>
+          <fieldset class="radio-fieldset radio-modern">
+            <legend>Necesitas plaza de autobus?</legend>
+            <div class="options">
+              <label class="option selected">
+                <input type="radio" name="Bus" value="No" checked hidden />
+                No
+              </label>
+              <label class="option">
+                <input type="radio" name="Bus" value="Si" hidden />
+                Si
+              </label>
             </div>
           </fieldset>
         </div>
 
-        <button type="submit" class="cta-button submit-btn">
-          Enviar Confirmación
-        </button>
+        <button type="submit" class="submit-modern">Enviar confirmacion</button>
       </form>
     </section>
-
-    <!-- =================== FOOTER ================== -->
-    <footer>
-      <p>Con amor, Paula & Pablo</p>
-      <p class="footer-year">2026 • Villalba</p>
-    </footer>
-
     <script src="js/main.js" type="module"></script>
   </body>
 </html>

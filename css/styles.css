@@ -1,13 +1,28 @@
 /* ==========================================================================
    1. VARIABLES DE COLOR Y TEMA
    ========================================================================== */
+@font-face {
+  font-family: "Medicall";
+  src: url("/media/Fuentes/medicall.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ManlyMen BB";
+  src: url("/media/Fuentes/ManlyMenBB.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --primary-color: #6d8b74; /* Verde Salvia */
-  --accent-color: #d4a373; /* Dorado suave */
+  --primary-color: #c55e57;
+  --accent-color: #af534c; /* ← nuevo color de acento */
   --bg-color: #f9f9f9;
   --section-bg: #ffffff;
-  --text-color: #444444;
+  primary-color: #444444;
   --input-bg: #ffffff;
   --input-border: #dddddd;
   --card-bg: #f9f9f9;
@@ -16,10 +31,11 @@
 }
 
 [data-theme="dark"] {
-  --primary-color: #8fb198;
-  --bg-color: #1a1a1a;
+  --primary-color: #c55e57;
+  --accent-color: #af534c;
+  --bg-color: #1a1a1a; /* ← faltaba esta línea */
   --section-bg: #262626;
-  --text-color: #f0f0f0;
+  primary-color: #f0f0f0;
   --input-bg: #333333;
   --input-border: #444444;
   --card-bg: #333333;
@@ -48,9 +64,11 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "ManlyMen BB", sans-serif;
   background-color: var(--bg-color);
-  color: var(--text-color);
+  background-image: url("/media/Imagenes/porVer.avif");
+  background-repeat: repeat;
+  color: var(--primary-color);
   line-height: 1.6;
   overflow-x: hidden;
   transition:
@@ -65,12 +83,12 @@ h3 {
 }
 
 .script-font {
-  font-family: "Great Vibes", cursive;
-  font-weight: 400;
+  font-family: "Medicall", cursive;
+  font-weight: normal;
 }
 
 ::selection {
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   color: white;
 }
 
@@ -250,7 +268,7 @@ header p {
   left: 0;
   height: 3px;
   width: 0%;
-  background: rgba(0, 0, 0, 0.385);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 /* Flechas — visibles solo en hover del carrusel */
@@ -299,7 +317,6 @@ header p {
   font-size: 0.95rem;
   font-weight: 300;
   line-height: 1.9;
-  color: var(--text-color);
 }
 .historia-firma {
   display: block;
@@ -393,7 +410,7 @@ header p {
 }
 .info-logistica address {
   font-style: normal;
-  color: var(--text-color);
+  color: var(primary-color);
   margin: 6px 0;
 }
 
@@ -472,7 +489,7 @@ header p {
 
 /* Timeline */
 .timeline-container {
-  margin-top: 60px;
+  margin-top: 100px;
 }
 .timeline-container > .script-font {
   font-size: 2rem;
@@ -485,22 +502,27 @@ header p {
   margin: 40px auto;
   padding: 20px 0;
 }
-.timeline::after {
+
+.timeline::before {
   content: "";
   position: absolute;
-  width: 2px;
-  background-color: var(--primary-color);
   top: 0;
   bottom: 0;
   left: 50%;
-  margin-left: -1px;
+  transform: translateX(-50%);
+  width: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='40'%3E%3Cpath d='M4 0 C2 5, 6 10, 4 15 C2 20, 6 25, 4 30 C2 35, 6 38, 4 40' stroke='%23c55e57' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-y;
+  background-size: 8px 40px;
 }
+
 .timeline-event {
   position: relative;
   width: 50%;
   padding: 10px 40px;
   text-align: right;
 }
+
 .timeline-event::after {
   content: "";
   position: absolute;
@@ -527,16 +549,65 @@ header p {
   color: var(--accent-color);
 }
 
-/* Nota de adultos */
-.kids-notice {
-  margin-top: 40px;
-  padding: 16px 24px;
-  background-color: var(--card-bg);
-  border-left: 4px solid var(--accent-color);
-  border-radius: 8px;
-  text-align: left;
-  max-width: 600px;
-  margin-inline: auto;
+.timeline-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  display: block;
+}
+.timeline-event:nth-child(odd) .timeline-icon {
+  margin-left: auto;
+}
+
+/* Toggle de transporte */
+.transport-toggle {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+.transport-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(primary-color);
+  font-family: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    color 0.2s,
+    opacity 0.2s;
+}
+.transport-btn.active {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+  color: white;
+  opacity: 1;
+}
+.transport-info {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  animation: fadeIn 0.3s ease;
+}
+.transport-info p + p {
+  margin-top: 6px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================================================
@@ -544,38 +615,97 @@ header p {
    ========================================================================== */
 
 .spotify-card {
-  background: linear-gradient(135deg, #1db954 0%, #191414 100%);
-  color: white;
-  padding: 50px 30px;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(29, 185, 84, 0.2);
-  max-width: 800px;
-  margin: 40px auto;
-}
-.spotify-title {
-  color: white;
-}
-.spotify-description {
-  margin-bottom: 1em;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background: #1a1a1a;
 }
 
-.spotify-button {
+.sp-cover {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.sp-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.75);
+  transition: filter 0.3s;
+}
+.spotify-card:hover .sp-cover img {
+  filter: brightness(0.85);
+}
+
+.sp-cover-label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.sp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1db954;
+  flex-shrink: 0;
+}
+
+.sp-body {
+  padding: 20px 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sp-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+}
+.sp-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sp-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background-color: #1db954;
+  gap: 8px;
+  background: #1db954;
   color: white;
   text-decoration: none;
-  padding: 15px 35px;
-  border-radius: 50px;
-  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition:
-    background-color 0.3s,
-    color 0.3s;
+    background 0.2s,
+    transform 0.2s;
 }
-.spotify-button:hover {
-  background-color: white;
-  color: #191414;
+.sp-btn:hover {
+  background: #17a349;
+  transform: scale(1.03);
+}
+.sp-icon {
+  font-size: 14px;
 }
 
 /* ==========================================================================
@@ -585,78 +715,255 @@ header p {
 .rsvp-section {
   background-color: var(--section-bg);
   border-radius: 15px;
-  padding: 40px;
+  padding: 60px 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.rsvp-subtitle {
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(primary-color);
+  opacity: 0.5;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 28px;
   max-width: 500px;
   margin: 0 auto;
   text-align: left;
 }
 
-input,
-select,
-textarea {
-  padding: 12px;
-  border: 1px solid var(--input-border);
-  border-radius: 5px;
-  background-color: var(--input-bg);
-  color: var(--text-color);
-  font-family: inherit;
-  font-size: 1rem;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
-}
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(109, 139, 116, 0.2);
-}
-
-/* Fieldset de radio (sin borde por defecto) */
-.radio-fieldset {
-  border: none;
-}
-.radio-fieldset legend {
-  font-size: 0.95rem;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-.radio-group {
-  display: flex;
+/* Fila de dos columnas */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
-.radio-group label {
+
+/* Campo con label flotante */
+.form-field {
+  position: relative;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--input-border);
+  border-radius: 0;
+  padding: 10px 0 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(primary-color);
+  outline: none;
+  transition: border-color 0.3s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-bottom-color: var(--primary-color);
+}
+.form-field label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(primary-color);
+  opacity: 0.4;
+  pointer-events: none;
+  transition:
+    top 0.2s,
+    font-size 0.2s,
+    color 0.2s,
+    opacity 0.2s;
+}
+
+/* Label sube cuando el campo tiene foco o contenido */
+.form-field input:focus ~ label,
+.form-field input:not(:placeholder-shown) ~ label,
+.form-field select:focus ~ label,
+.form-field textarea:focus ~ label,
+.form-field textarea:not(:placeholder-shown) ~ label,
+.form-field--filled label {
+  top: -14px;
+  font-size: 0.7rem;
+  color: var(--primary-color);
+  opacity: 1;
+}
+
+/* Opciones como botones (reemplaza radio buttons) */
+.radio-modern {
+  border: none;
+  padding: 0;
+}
+.radio-modern legend {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+.radio-modern .options {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  gap: 10px;
+}
+.radio-modern .option {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.85rem;
   cursor: pointer;
+  color: var(primary-color);
+  opacity: 0.6;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    color 0.2s,
+    opacity 0.2s;
+  user-select: none;
+}
+.radio-modern .option.selected {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+  color: white;
+  opacity: 1;
+}
+
+/* Flecha en el select */
+.form-field {
+  position: relative;
+}
+.form-field select {
+  padding-right: 20px;
+  cursor: pointer;
+}
+.form-field:has(select)::after {
+  content: "▾";
+  position: absolute;
+  right: 0;
+  top: 10px;
+  font-size: 12px;
+  color: var(primary-color);
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 /* Botón de enviar */
-.submit-btn {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 0;
+.submit-modern {
   width: 100%;
-  text-align: center;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    color 0.3s;
+  margin-top: 8px;
 }
-.submit-btn:hover {
-  background-color: var(--accent-color);
+.submit-modern:hover {
+  background: var(--accent-color);
+  border: var(--accent-color);
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+.menu-persona {
+  border-top: 1px solid var(--input-border);
+  padding-top: 20px;
+}
+.menu-persona:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Slider de acompañantes */
+.slider-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.slider-label {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+.slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.slider-wrap input[type="range"] {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: var(--input-border);
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+.slider-wrap input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.slider-wrap input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+.slider-wrap input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent-color);
+  cursor: pointer;
+}
+.slider-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  min-width: 20px;
+  text-align: right;
+}
+
+/* Colores por tipo de menú */
+.radio-modern .option[data-value="Estandar"].selected {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.radio-modern .option[data-value="Vegetariano"].selected {
+  background: #4a8c5c;
+  border-color: #4a8c5c;
+}
+.radio-modern .option[data-value="Infantil"].selected {
+  background: #5a7fb5;
+  border-color: #5a7fb5;
+}
 /* ==========================================================================
    11. FOOTER
    ========================================================================== */
@@ -678,34 +985,91 @@ footer {
    ========================================================================== */
 
 @media (max-width: 768px) {
+  /* --- Espaciado general --- */
   .section-container {
-    padding: 50px 20px;
+    padding: 50px 16px;
   }
 
-  .story-item,
-  .story-item.reverse {
+  /* --- RSVP --- */
+  .rsvp-section {
+    padding: 40px 20px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Tarjetas info --- */
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  .info-card {
+    padding: 24px 20px;
+  }
+
+  /* --- Mapas --- */
+  #donde {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Transporte --- */
+  .transport-toggle {
     flex-direction: column;
-    text-align: center;
+  }
+  .transport-btn {
+    width: 100%;
   }
 
-  /* Timeline en columna única */
-  .timeline::after {
-    left: 31px;
+  /* --- Timeline: columna única alineada a la izquierda --- */
+  .timeline::before {
+    left: 20px;
+    transform: none;
   }
   .timeline-event {
     width: 100%;
-    padding-left: 70px;
+    padding-left: 60px;
+    padding-right: 16px;
     text-align: left;
   }
   .timeline-event::after {
-    left: 22px;
+    left: 12px;
+    right: auto;
   }
   .timeline-event:nth-child(even) {
     left: 0;
+    text-align: left;
   }
-}
+  .timeline-event:nth-child(even)::after {
+    left: 12px;
+  }
+  .timeline-event:nth-child(odd) .timeline-icon {
+    margin-left: 0;
+  }
+  .timeline-icon {
+    width: 70px;
+    height: 70px;
+  }
 
-@media (max-width: 480px) {
+  /* --- Spotify --- */
+  .spotify-card {
+    max-width: 100%;
+  }
+  .sp-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .sp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* --- Header --- */
+  header p {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  /* --- Countdown --- */
   #countdown {
     gap: 10px;
   }
@@ -715,5 +1079,40 @@ footer {
   }
   .countdown-item span {
     font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* --- Formulario muy pequeño --- */
+  .rsvp-section {
+    padding: 30px 14px;
+  }
+  .radio-modern .options {
+    flex-direction: column;
+  }
+  .radio-modern .option {
+    width: 100%;
+  }
+
+  /* --- Tarjetas de menú --- */
+  .menu-persona .options {
+    flex-direction: column;
+  }
+
+  /* --- Countdown --- */
+  .countdown-item span {
+    font-size: 1.5rem;
+  }
+  .countdown-item {
+    min-width: 60px;
+  }
+
+  /* --- Timeline más compacto --- */
+  .timeline-event {
+    padding-left: 50px;
+  }
+  .timeline-icon {
+    width: 55px;
+    height: 55px;
   }
 }
