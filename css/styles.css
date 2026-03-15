@@ -615,38 +615,98 @@ header p {
    ========================================================================== */
 
 .spotify-card {
-  background: linear-gradient(135deg, #1db954 0%, #191414 100%);
-  color: white;
-  padding: 50px 30px;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(29, 185, 84, 0.2);
-  max-width: 800px;
-  margin: 40px auto;
-}
-.spotify-title {
-  color: white;
-}
-.spotify-description {
-  margin-bottom: 1em;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background: #1a1a1a;
 }
 
-.spotify-button {
+.sp-cover {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.sp-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.75);
+  transition: filter 0.3s;
+}
+.spotify-card:hover .sp-cover img {
+  filter: brightness(0.85);
+}
+
+.sp-cover-label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.sp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1db954;
+  flex-shrink: 0;
+}
+
+.sp-body {
+  padding: 20px 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sp-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+}
+.sp-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sp-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background-color: #1db954;
+  gap: 8px;
+  background: #1db954;
   color: white;
   text-decoration: none;
-  padding: 15px 35px;
-  border-radius: 50px;
-  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition:
-    background-color 0.3s,
-    color 0.3s;
+    background 0.2s,
+    transform 0.2s;
 }
-.spotify-button:hover {
-  background-color: white;
-  color: #191414;
+.sp-btn:hover {
+  background: #17a349;
+  transform: scale(1.03);
+}
+.sp-icon {
+  font-size: 14px;
 }
 
 /* ==========================================================================
