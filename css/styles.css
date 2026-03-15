@@ -751,7 +751,7 @@ header p {
    ========================================================================== */
 
 .rsvp-section {
-    padding: 60px 40px;
+  padding: 60px 40px;
 }
 
 .rsvp-subtitle {
@@ -1001,6 +1001,32 @@ form {
 }
 
 /* ==========================================================================
+   13. FOOTER
+   ========================================================================== */
+
+.footer-section {
+  padding: 80px 20px 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.7;
+}
+
+.footer-text {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  opacity: 0.85;
+}
+
+/* ==========================================================================
    12. RESPONSIVE
    ========================================================================== */
 
@@ -1043,56 +1069,56 @@ form {
   }
 
   /* --- Timeline: columna única centrada --- */
- /* --- Timeline: centrado con dos columnas --- */
-.timeline-container {
+  /* --- Timeline: centrado con dos columnas --- */
+  .timeline-container {
     margin-top: 60px;
-}
+  }
 
-.timeline {
+  .timeline {
     max-width: 100%;
     margin: 20px auto;
     padding: 20px 0;
-}
+  }
 
-.timeline::before {
+  .timeline::before {
     left: 50%;
     transform: translateX(-50%);
-}
+  }
 
-.timeline-event {
+  .timeline-event {
     width: 50%;
     padding: 10px 16px;
     text-align: right;
-}
+  }
 
-.timeline-event::after {
+  .timeline-event::after {
     right: -8px;
     left: auto;
-}
+  }
 
-.timeline-event:nth-child(even) {
+  .timeline-event:nth-child(even) {
     left: 50%;
     text-align: left;
-}
+  }
 
-.timeline-event:nth-child(even)::after {
+  .timeline-event:nth-child(even)::after {
     left: -8px;
     right: auto;
-}
+  }
 
-.timeline-event:nth-child(odd) .timeline-icon {
+  .timeline-event:nth-child(odd) .timeline-icon {
     margin-left: auto;
     margin-right: 0;
-}
+  }
 
-.timeline-time {
+  .timeline-time {
     font-size: 0.95rem;
-}
+  }
 
-.timeline-icon {
+  .timeline-icon {
     width: 55px;
     height: 55px;
-}
+  }
 
   /* --- Spotify --- */
   .spotify-card {
@@ -1121,10 +1147,14 @@ form {
   }
 
   .radio-modern .options {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .radio-modern .option {
-    width: 100%;
+    flex: 0 1 auto;
+    min-width: 120px;
+    width: auto;
   }
 
   .menu-persona .options {
