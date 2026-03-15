@@ -5,27 +5,6 @@ import { IMAGES } from "./images.js";
    ========================================================================== */
 
 const eventDate = new Date("July 18, 2026 13:30:00").getTime();
-const themeToggle = document.getElementById("theme-toggle");
-const savedTheme = localStorage.getItem("theme");
-
-/* ==========================================================================
-   2. MODO OSCURO
-   ========================================================================== */
-
-if (savedTheme) {
-  document.documentElement.setAttribute("data-theme", savedTheme);
-  themeToggle.innerText =
-    savedTheme === "dark" ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
-}
-
-themeToggle.addEventListener("click", () => {
-  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-  const newTheme = isDark ? "light" : "dark";
-
-  document.documentElement.setAttribute("data-theme", newTheme);
-  themeToggle.innerText = isDark ? "🌙 Modo Oscuro" : "☀️ Modo Claro";
-  localStorage.setItem("theme", newTheme);
-});
 
 /* ==========================================================================
    4. CUENTA ATRÁS

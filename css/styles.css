@@ -30,19 +30,6 @@
   --footer-text: #dddddd;
 }
 
-[data-theme="dark"] {
-  --primary-color: #c55e57;
-  --accent-color: #af534c;
-  --bg-color: #1a1a1a; /* ← faltaba esta línea */
-  --section-bg: #262626;
-  primary-color: #f0f0f0;
-  --input-bg: #333333;
-  --input-border: #444444;
-  --card-bg: #333333;
-  --footer-bg: #000000;
-  --footer-text: #bbbbbb;
-}
-
 /* ==========================================================================
    2. RESET Y ESTILOS BASE
    ========================================================================== */
@@ -141,27 +128,6 @@ h2 {
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* --- Toggle de tema --- */
-#theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  padding: 10px 15px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s;
-}
-#theme-toggle:hover {
-  transform: scale(1.05);
 }
 
 /* --- Animación de entrada --- */
@@ -336,7 +302,7 @@ header p {
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 .countdown-item {
   flex: 1;
@@ -437,13 +403,6 @@ header p {
   width: 100%;
   height: 100%;
   filter: grayscale(0.2);
-}
-[data-theme="dark"] .map-responsive iframe {
-  opacity: 0.85;
-  transition: opacity 0.3s;
-}
-[data-theme="dark"] .map-responsive iframe:hover {
-  opacity: 1;
 }
 
 /* Tarjetas de info (dress code, transporte, alojamiento) */
