@@ -4,7 +4,7 @@ import { extname, join, basename } from 'path';
 
 const FOLDERS = [
     { input: './media/Imagenes', output: './media/Imagenes/compressed', width: 1920 },
-    { input: './media/Dibujos',  output: './media/Dibujos/compressed',  width: 800  },
+    { input: './media/Dibujos',  output: './media/Dibujos/compressed/compressed',  width: 800  },
 ];
 
 const EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
