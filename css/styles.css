@@ -66,6 +66,8 @@ html {
 body {
   font-family: "ManlyMen BB", sans-serif;
   background-color: var(--bg-color);
+  background-image: url("/media/Imagenes/fondo1.avif");
+  background-repeat: repeat;
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
