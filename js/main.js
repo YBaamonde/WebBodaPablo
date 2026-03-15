@@ -302,3 +302,22 @@ document.querySelectorAll(".transport-btn").forEach((btn) => {
     document.getElementById(`info-${target}`).classList.remove("hidden");
   });
 });
+
+/* ==========================================================================
+   10. COPIAR NUMERO DE CUENTA
+   ========================================================================== */
+
+const copiarBtn = document.getElementById("copiar-cuenta");
+const confirmacion = document.getElementById("cuenta-confirmacion");
+
+if (copiarBtn) {
+  copiarBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText("ES00 0000 0000 0000 0000 0000");
+    confirmacion.classList.remove("hidden");
+    copiarBtn.textContent = "Copiado";
+    setTimeout(() => {
+      confirmacion.classList.add("hidden");
+      copiarBtn.textContent = "Copiar numero";
+    }, 2500);
+  });
+}

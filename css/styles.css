@@ -4,7 +4,7 @@
 @font-face {
   font-family: "Medicall";
   src: url("/media/Fuentes/medicall.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: bolder;
   font-style: normal;
   font-display: swap;
 }
@@ -73,7 +73,7 @@ h3 {
 
 .script-font {
   font-family: "Medicall", cursive;
-  font-weight: normal;
+  font-weight: bolder;
 }
 
 ::selection {
@@ -692,6 +692,60 @@ header p {
 }
 .sp-icon {
   font-size: 14px;
+}
+
+/* ==========================================================================
+   9B. REGALO
+   ========================================================================== */
+
+.cuenta-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+  padding: 32px 48px;
+  background-color: var(--section-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+.cuenta-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+.cuenta-numero {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--primary-color);
+}
+.cuenta-copiar {
+  margin-top: 4px;
+  padding: 8px 24px;
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 20px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.cuenta-copiar:hover {
+  background: var(--primary-color);
+  color: white;
+}
+.cuenta-confirmacion {
+  font-size: 0.78rem;
+  opacity: 0.6;
+  letter-spacing: 1px;
 }
 
 /* ==========================================================================
