@@ -5,6 +5,10 @@ export const IMAGES = [
     position: "50% 10%",
   },
   {
+    file: "foto-30.jpeg",
+    position: "50% 5%",
+  },
+  {
     file: "foto-01.jpg",
     position: "50% 95%",
   },
@@ -53,9 +57,5 @@ export const IMAGES = [
   {
     file: "foto-29.jpeg",
     position: "50% 70%",
-  },
-  {
-    file: "foto-30.jpeg",
-    position: "50% 5%",
   },
 ];
