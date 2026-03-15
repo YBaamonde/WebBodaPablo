@@ -15,6 +15,10 @@ export const IMAGES = [
     file: "foto-07.jpg",
     position: "50% 80%",
   },
+  {
+    file: "foto-20.jpeg",
+    position: "50% 90%",
+  },
   "foto-08.jpg",
   "foto-10.jpg",
   {
@@ -29,10 +33,6 @@ export const IMAGES = [
   },
   "foto-18.jpeg",
   "foto-19.jpeg",
-  {
-    file: "foto-20.jpeg",
-    position: "50% 90%",
-  },
   "foto-21.jpg",
   {
     file: "foto-22.jpg",
@@ -45,5 +45,17 @@ export const IMAGES = [
   {
     file: "foto-26.jpeg",
     position: "50% 70%",
+  },
+  {
+    file: "foto-27.jpeg",
+    position: "50% 70%",
+  },
+  {
+    file: "foto-29.jpeg",
+    position: "50% 70%",
+  },
+  {
+    file: "foto-30.jpeg",
+    position: "50% 5%",
   },
 ];
