@@ -1,7 +1,7 @@
 export const IMAGES = [
   {
-    file: "foto-24.webp",
-    position: "50% 10%",
+    file: "foto-17.jpeg",
+    position: "50% 70%",
   },
   {
     file: "foto-30.jpeg",
@@ -28,12 +28,12 @@ export const IMAGES = [
     file: "foto-13.webp",
     position: "50% 1%",
   },
+  {
+    file: "foto-24.webp",
+    position: "50% 10%",
+  },
   "foto-14.webp",
   "foto-15.webp",
-  {
-    file: "foto-17.jpeg",
-    position: "50% 70%",
-  },
   "foto-18.jpeg",
   "foto-19.jpeg",
   "foto-21.webp",
