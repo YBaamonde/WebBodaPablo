@@ -1,13 +1,13 @@
 import { IMAGES } from "./images.js";
 
 /* ==========================================================================
-   1. CONFIGURACIÓN INICIAL
+   1. CONFIGURACION INICIAL
    ========================================================================== */
 
 const eventDate = new Date("July 18, 2026 13:30:00").getTime();
 
 /* ==========================================================================
-   4. CUENTA ATRÁS
+   2. CUENTA ATRAS
    ========================================================================== */
 
 const dEl = document.getElementById("days");
@@ -22,7 +22,7 @@ const updateCountdown = () => {
   if (remaining < 0) {
     clearInterval(countdownInterval);
     const container = document.getElementById("countdown");
-    if (container) container.innerHTML = "<h3>¡Estamos de celebración! 🥂</h3>";
+    if (container) container.innerHTML = "<h3>Estamos de celebracion! 🥂</h3>";
     return;
   }
 
@@ -34,7 +34,7 @@ const updateCountdown = () => {
   const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
   if (days === 0 && countdownTitle) {
-    countdownTitle.innerText = "¡Mañana es el gran día! ✨";
+    countdownTitle.innerText = "Mañana es el gran dia! ✨";
     countdownTitle.style.color = "var(--accent-color)";
   }
 
@@ -48,7 +48,7 @@ const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
 /* ==========================================================================
-   5. ANIMACIONES DE ENTRADA (Intersection Observer)
+   3. ANIMACIONES DE ENTRADA (Intersection Observer)
    ========================================================================== */
 
 const observer = new IntersectionObserver(
@@ -66,16 +66,12 @@ document.querySelectorAll("section").forEach((section) => {
 });
 
 /* ==========================================================================
-   6. CARRUSEL — NUESTRA HISTORIA
+   4. CARRUSEL — NUESTRA HISTORIA
    ========================================================================== */
 
 (function () {
   const INTERVAL = 4500;
-
-  const USE_COMPRESSED = true; // ← cambia a false para volver a los originales
-  const IMAGE_PATH = USE_COMPRESSED
-    ? "/media/Imagenes/compressed/"
-    : "/media/Imagenes/";
+  const IMAGE_PATH = "media/Imagenes/compressed/";
 
   const track = document.getElementById("historia-track");
   const progress = document.getElementById("historia-progress");
@@ -90,11 +86,7 @@ document.querySelectorAll("section").forEach((section) => {
     const position =
       typeof entry === "string" ? "center" : (entry.position ?? "center");
     const zoom = typeof entry === "string" ? "cover" : (entry.zoom ?? "cover");
-
-    // Si usamos comprimidas, cambia la extensión a .webp
-    const filename = USE_COMPRESSED
-      ? file.replace(/\.(jpg|jpeg|png|avif)$/i, ".webp")
-      : file;
+    const filename = file.replace(/\.(jpg|jpeg|png|avif)$/i, ".webp");
 
     const slide = document.createElement("div");
     slide.className = "carousel-slide";
@@ -145,16 +137,16 @@ document.querySelectorAll("section").forEach((section) => {
 })();
 
 /* ==========================================================================
-   7. FORMULARIO: menús dinámicos y lógica de autobús
+   5. FORMULARIO: menus dinamicos y logica de autobus
    ========================================================================== */
 
 const MENU_OPCIONES = [
-  { value: "Estandar", label: "Menú Estándar" },
-  { value: "Vegetariano", label: "Menú Vegetariano" },
-  { value: "Infantil", label: "Menú Infantil" },
+  { value: "Estandar", label: "Menu Estandar" },
+  { value: "Vegetariano", label: "Menu Vegetariano" },
+  { value: "Infantil", label: "Menu Infantil" },
 ];
 
-function crearSelectorMenu(nombre, inputName, index) {
+function crearSelectorMenu(nombre, inputName) {
   const wrap = document.createElement("div");
   wrap.className = "menu-persona radio-modern";
 
@@ -168,7 +160,7 @@ function crearSelectorMenu(nombre, inputName, index) {
   MENU_OPCIONES.forEach((op, i) => {
     const label = document.createElement("label");
     label.className = "option" + (i === 0 ? " selected" : "");
-    label.dataset.value = op.value; // ← añade esto
+    label.dataset.value = op.value;
 
     const input = document.createElement("input");
     input.type = "radio";
@@ -184,7 +176,6 @@ function crearSelectorMenu(nombre, inputName, index) {
 
   wrap.appendChild(options);
 
-  // Lógica de selección visual
   options.querySelectorAll(".option").forEach((option) => {
     option.addEventListener("click", () => {
       options
@@ -203,21 +194,14 @@ function actualizarMenus() {
   const contenedor = document.getElementById("menu-dinamico");
   contenedor.innerHTML = "";
 
-  // Menú del titular
-  contenedor.appendChild(crearSelectorMenu("Tu menú", "Menu_0", 0));
-
-  // Menú de cada acompañante
+  contenedor.appendChild(crearSelectorMenu("Tu menu", "Menu_0"));
   for (let i = 1; i <= n; i++) {
-    contenedor.appendChild(
-      crearSelectorMenu(`Acompañante ${i}`, `Menu_${i}`, i),
-    );
+    contenedor.appendChild(crearSelectorMenu(`Acompañante ${i}`, `Menu_${i}`));
   }
 }
 
-// Inicializa al cargar
 actualizarMenus();
 
-// Actualiza al cambiar número de acompañantes
 const inputAcompanantes = document.getElementById("plus-one");
 const valorAcompanantes = document.getElementById("plus-one-value");
 
@@ -229,7 +213,6 @@ if (inputAcompanantes) {
   });
 }
 
-// Opciones visuales para otros radio-modern (asistencia, viveiro, bus)
 function activarRadioModern(group) {
   group.querySelectorAll(".option").forEach((option) => {
     option.addEventListener("click", () => {
@@ -239,7 +222,6 @@ function activarRadioModern(group) {
       option.classList.add("selected");
       option.querySelector('input[type="radio"]').checked = true;
 
-      // Lógica Viveiro → autobús
       const radio = option.querySelector('input[name="Viveiro"]');
       if (radio) {
         const busQuestion = document.getElementById("bus-question");
@@ -261,7 +243,7 @@ function activarRadioModern(group) {
 document.querySelectorAll(".radio-modern .options").forEach(activarRadioModern);
 
 /* ==========================================================================
-   8. FADE DE SALIDA DEL HEADER AL HACER SCROLL
+   6. FADE DE SALIDA DEL HEADER AL HACER SCROLL
    ========================================================================== */
 
 (function () {
@@ -284,7 +266,7 @@ document.querySelectorAll(".radio-modern .options").forEach(activarRadioModern);
 })();
 
 /* ==========================================================================
-   9. TOGGLE DE TRANSPORTE
+   7. TOGGLE DE TRANSPORTE
    ========================================================================== */
 
 document.querySelectorAll(".transport-btn").forEach((btn) => {
@@ -304,7 +286,7 @@ document.querySelectorAll(".transport-btn").forEach((btn) => {
 });
 
 /* ==========================================================================
-   10. COPIAR NUMERO DE CUENTA
+   8. COPIAR NUMERO DE CUENTA
    ========================================================================== */
 
 const copiarBtn = document.getElementById("copiar-cuenta");
