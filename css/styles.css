@@ -759,7 +759,6 @@ header p {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(primary-color);
-  opacity: 0.5;
   margin-bottom: 40px;
   margin-top: 40px;
 }
@@ -1180,3 +1179,6 @@ form {
     height: 55px;
   }
 }
+
+/* Correcciones ligeras */
+
