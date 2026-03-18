@@ -213,33 +213,6 @@ if (inputAcompanantes) {
   });
 }
 
-function activarRadioModern(group) {
-  group.querySelectorAll(".option").forEach((option) => {
-    option.addEventListener("click", () => {
-      group
-        .querySelectorAll(".option")
-        .forEach((o) => o.classList.remove("selected"));
-      option.classList.add("selected");
-      option.querySelector('input[type="radio"]').checked = true;
-
-      const radio = option.querySelector('input[name="Viveiro"]');
-      if (radio) {
-        const busQuestion = document.getElementById("bus-question");
-        const busOptions = busQuestion.querySelectorAll(".option");
-
-        if (radio.value === "Si") {
-          busQuestion.classList.remove("hidden");
-        } else {
-          busQuestion.classList.add("hidden");
-          busOptions.forEach((o) => o.classList.remove("selected"));
-          busOptions[0].classList.add("selected");
-          busOptions[0].querySelector('input[type="radio"]').checked = true;
-        }
-      }
-    });
-  });
-}
-
 document.querySelectorAll(".radio-modern .options").forEach(activarRadioModern);
 
 /* ==========================================================================
