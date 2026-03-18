@@ -544,36 +544,6 @@ header p {
   margin-left: auto;
 }
 
-/* Toggle de transporte */
-.transport-toggle {
-  display: flex;
-  gap: 8px;
-  margin: 12px 0;
-  flex-wrap: wrap;
-}
-.transport-btn {
-  flex: 1;
-  padding: 8px 12px;
-  border: 1px solid var(--input-border);
-  border-radius: 20px;
-  background: transparent;
-  color: var(primary-color);
-  font-family: inherit;
-  font-size: 0.82rem;
-  cursor: pointer;
-  opacity: 0.6;
-  transition:
-    border-color 0.2s,
-    background 0.2s,
-    color 0.2s,
-    opacity 0.2s;
-}
-.transport-btn.active {
-  border-color: var(--accent-color);
-  background: var(--accent-color);
-  color: white;
-  opacity: 1;
-}
 .transport-info {
   margin-top: 8px;
   font-size: 0.9rem;
@@ -582,16 +552,6 @@ header p {
 }
 .transport-info p + p {
   margin-top: 6px;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ==========================================================================
@@ -707,6 +667,7 @@ header p {
   border: 1px solid var(--input-border);
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  max-width: 90%;
 }
 .cuenta-label {
   font-size: 0.7rem;
@@ -1178,7 +1139,14 @@ form {
     width: 55px;
     height: 55px;
   }
+
+  .cuenta-numero {
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+  }
+  .cuenta-card {
+    padding: 14px 20px;
+  }
 }
 
 /* Correcciones ligeras */
-
