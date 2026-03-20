@@ -209,6 +209,20 @@ function crearCampoNombre(index) {
   return wrap;
 }
 
+function activarRadioModern(group) {
+  group.querySelectorAll(".option").forEach((option) => {
+    option.addEventListener("click", () => {
+      group
+        .querySelectorAll(".option")
+        .forEach((o) => o.classList.remove("selected"));
+      option.classList.add("selected");
+      option.querySelector('input[type="radio"]').checked = true;
+    });
+  });
+}
+
+document.querySelectorAll(".radio-modern .options").forEach(activarRadioModern);
+
 function actualizarMenus() {
   const n = parseInt(document.getElementById("plus-one").value) || 0;
   const contenedor = document.getElementById("menu-dinamico");
@@ -280,3 +294,31 @@ if (copiarBtn) {
     }, 2500);
   });
 }
+
+/* ==========================================================================
+   8. VINILO — MUSICA DE FONDO
+   ========================================================================== */
+
+(function () {
+  const audio = document.getElementById("musica-fondo");
+  const btn = document.getElementById("vinyl-btn");
+  const icon = document.getElementById("vinyl-icon");
+
+  console.log("vinilo:", btn, "audio:", audio);
+
+  if (!audio || !btn) return;
+
+  audio.volume = 0.35;
+
+  btn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      btn.classList.add("spinning");
+      icon.textContent = "⏸";
+    } else {
+      audio.pause();
+      btn.classList.remove("spinning");
+      icon.textContent = "▶";
+    }
+  });
+})();
