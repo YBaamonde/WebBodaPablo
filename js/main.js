@@ -189,14 +189,38 @@ function crearSelectorMenu(nombre, inputName) {
   return wrap;
 }
 
+function crearCampoNombre(index) {
+  const wrap = document.createElement("div");
+  wrap.className = "form-field";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.name = `Nombre_Acompanante_${index}`;
+  input.placeholder = " ";
+  input.required = true;
+  input.pattern = "^[a-zA-ZÀ-ÿ\\s]{3,60}$";
+
+  const label = document.createElement("label");
+  label.textContent = `Nombre acompañante ${index}`;
+
+  wrap.appendChild(input);
+  wrap.appendChild(label);
+
+  return wrap;
+}
+
 function actualizarMenus() {
   const n = parseInt(document.getElementById("plus-one").value) || 0;
   const contenedor = document.getElementById("menu-dinamico");
   contenedor.innerHTML = "";
 
   contenedor.appendChild(crearSelectorMenu("Tu menu", "Menu_0"));
+
   for (let i = 1; i <= n; i++) {
-    contenedor.appendChild(crearSelectorMenu(`Acompañante ${i}`, `Menu_${i}`));
+    contenedor.appendChild(crearCampoNombre(i));
+    contenedor.appendChild(
+      crearSelectorMenu(`Menu acompañante ${i}`, `Menu_${i}`),
+    );
   }
 }
 
@@ -237,7 +261,6 @@ document.querySelectorAll(".radio-modern .options").forEach(activarRadioModern);
     { passive: true },
   );
 })();
-
 
 /* ==========================================================================
    7. COPIAR NUMERO DE CUENTA
