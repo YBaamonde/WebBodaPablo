@@ -189,14 +189,52 @@ function crearSelectorMenu(nombre, inputName) {
   return wrap;
 }
 
+function crearCampoNombre(index) {
+  const wrap = document.createElement("div");
+  wrap.className = "form-field";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.name = `Nombre_Acompanante_${index}`;
+  input.placeholder = " ";
+  input.required = true;
+  input.pattern = "^[a-zA-ZÀ-ÿ\\s]{3,60}$";
+
+  const label = document.createElement("label");
+  label.textContent = `Nombre acompañante ${index}`;
+
+  wrap.appendChild(input);
+  wrap.appendChild(label);
+
+  return wrap;
+}
+
+function activarRadioModern(group) {
+  group.querySelectorAll(".option").forEach((option) => {
+    option.addEventListener("click", () => {
+      group
+        .querySelectorAll(".option")
+        .forEach((o) => o.classList.remove("selected"));
+      option.classList.add("selected");
+      option.querySelector('input[type="radio"]').checked = true;
+    });
+  });
+}
+
+document.querySelectorAll(".radio-modern .options").forEach(activarRadioModern);
+
 function actualizarMenus() {
   const n = parseInt(document.getElementById("plus-one").value) || 0;
   const contenedor = document.getElementById("menu-dinamico");
   contenedor.innerHTML = "";
 
   contenedor.appendChild(crearSelectorMenu("Tu menu", "Menu_0"));
+
   for (let i = 1; i <= n; i++) {
-    contenedor.appendChild(crearSelectorMenu(`Acompañante ${i}`, `Menu_${i}`));
+    contenedor.appendChild(crearCampoNombre(i));
+    contenedor.appendChild(
+      crearSelectorMenu(`Menu acompañante ${i}`, `Menu_${i}`),
+    );
   }
 }
 
@@ -238,7 +276,6 @@ document.querySelectorAll(".radio-modern .options").forEach(activarRadioModern);
   );
 })();
 
-
 /* ==========================================================================
    7. COPIAR NUMERO DE CUENTA
    ========================================================================== */
@@ -257,3 +294,31 @@ if (copiarBtn) {
     }, 2500);
   });
 }
+
+/* ==========================================================================
+   8. VINILO — MUSICA DE FONDO
+   ========================================================================== */
+
+(function () {
+  const audio = document.getElementById("musica-fondo");
+  const btn = document.getElementById("vinyl-btn");
+  const icon = document.getElementById("vinyl-icon");
+
+  console.log("vinilo:", btn, "audio:", audio);
+
+  if (!audio || !btn) return;
+
+  audio.volume = 0.35;
+
+  btn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      btn.classList.add("spinning");
+      icon.textContent = "⏸";
+    } else {
+      audio.pause();
+      btn.classList.remove("spinning");
+      icon.textContent = "▶";
+    }
+  });
+})();

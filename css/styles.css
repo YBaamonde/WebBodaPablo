@@ -987,7 +987,130 @@ form {
 }
 
 /* ==========================================================================
-   12. RESPONSIVE
+   14. VINILO FLOTANTE
+   ========================================================================== */
+
+#vinyl-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.28));
+  transition: filter 0.3s;
+}
+#vinyl-btn:hover {
+  filter: drop-shadow(0 6px 20px rgba(197, 94, 87, 0.4));
+}
+
+.vinyl-disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at 50%,
+    #0d0d0d 0px,
+    #0d0d0d 1px,
+    #1e1e1e 1px,
+    #1e1e1e 2.5px
+  );
+}
+
+.vinyl-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--primary-color);
+  z-index: 1;
+}
+
+.vinyl-hole {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f5f0eb;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.vinyl-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 55%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+.vinyl-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(197, 94, 87, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 4;
+}
+#vinyl-btn:hover .vinyl-overlay {
+  opacity: 1;
+}
+
+/* Animacion de giro */
+#vinyl-btn.spinning .vinyl-disc {
+  animation: vinylSpin 3s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes vinylSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  #vinyl-btn {
+    width: 46px;
+    height: 46px;
+    bottom: 16px;
+    right: 16px;
+  }
+  .vinyl-label {
+    width: 18px;
+    height: 18px;
+  }
+  .vinyl-hole {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+/* ==========================================================================
+   15. RESPONSIVE
    ========================================================================== */
 
 @media (max-width: 768px) {
@@ -1146,6 +1269,12 @@ form {
   }
   .cuenta-card {
     padding: 14px 20px;
+  }
+
+  @media (max-width: 480px) {
+    .vinyl-disc {
+      transform-origin: 23px 23px; /* mitad de 46px */
+    }
   }
 }
 
