@@ -1,417 +1,341 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nuestra Boda | Paula & Pablo</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" href="https://fav.farm/💍" />
 
-    <meta property="og:title" content="¡Nos Casamos! - Paula & Pablo 2026" />
-    <meta
-      property="og:description"
-      content="Acompáñanos en nuestro gran dia. Toda la información aquí."
-    />
-    <meta property="og:image" content="https://paulaypablo.es/media/Imagenes/compressed/foto-24.webp" />
-    <meta property="og:url"   content="https://paulaypablo.es" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestra Boda | Paula & Pablo</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="https://fav.farm/💍" />
 
-  <body>
+  <meta property="og:title" content="¡Nos Casamos! - Paula & Pablo 2026" />
+  <meta property="og:description" content="Acompáñanos en nuestro gran dia. Toda la información aquí." />
+  <meta property="og:image" content="https://paulaypablo.es/media/Imagenes/compressed/foto-24.webp" />
+  <meta property="og:url" content="https://paulaypablo.es" />
+</head>
 
-    <!-- ===================== HERO ===================== -->
-    <header id="inicio">
-      <video class="header-video" autoplay muted loop playsinline>
-        <source
-          src="media/video.mp4"
-          type="video/mp4"
-        />
-      </video>
+<body>
 
-      <div class="header-overlay"></div>
+  <!-- ===================== HERO ===================== -->
+  <header id="inicio">
+    <video class="header-video" autoplay muted loop playsinline>
+      <source src="media/video.mp4" type="video/mp4" />
+    </video>
 
-      <div class="header-content">
-        
-        <img
-          src="media/Dibujos/compressed/paulipablo.png"
-          alt="Nombres"
-          class="rings-icon"
-          style="width: 250px; height: auto"
-        />
-        <a href="#rsvp" class="cta-button">Confirmar Asistencia</a>
+    <div class="header-overlay"></div>
+
+    <div class="header-content">
+
+      <img src="media/Dibujos/compressed/paulipablo.png" alt="Nombres" class="rings-icon"
+        style="width: 250px; height: auto" />
+      <a href="#rsvp" class="cta-button">Confirmar Asistencia</a>
+    </div>
+  </header>
+
+  <div class="hero-info-container" style="margin: 50px auto 0 auto; padding: 0 20px; max-width: 500px;">
+    <p style="font-size: 90%; text-align: center;">
+      ¡Nos casamos!
+    </p>
+    <p style="font-size: 90%; text-align: center;">Un dia para celebrar juntos, rodeados de quienes mas queremos.</p>
+    <p style="font-size: 90%; text-align: center;">Con ilusion, te invitamos a nuestra boda <br>18 de julio de 2026.</p>
+    <p style="font-size: 90%; text-align: center;"> Finca Penas Corveiras · Vilalba, Lugo</p>
+  </div>
+
+  <!-- ================ CUENTA ATRÁS ================ -->
+  <section id="countdown-section" class="section-container">
+    <h2 class="script-font">Falta poco</h2>
+    <div id="countdown">
+      <div class="countdown-item">
+        <span id="days">00</span>
+        <p>dias</p>
       </div>
-    </header>
+      <div class="countdown-item">
+        <span id="hours">00</span>
+        <p>Horas</p>
+      </div>
+      <div class="countdown-item">
+        <span id="minutes">00</span>
+        <p>Minutos</p>
+      </div>
+      <div class="countdown-item">
+        <span id="seconds">00</span>
+        <p>Segundos</p>
+      </div>
+    </div>
+  </section>
 
-    <div class="hero-info-container" style="margin: 50px auto 0 auto; padding: 0 20px; max-width: 500px;">
-        <p style="font-size: 90%; text-align: center;">
-            ¡Nos casamos!
+  <!-- ================ NUESTRA HISTORIA ============== -->
+  <section id="historia" class="section-container">
+    <h2 class="script-font section-title">Juntos</h2>
+
+    <div class="carousel-wrap" id="historia-carousel">
+      <div class="carousel-track" id="historia-track"></div>
+      <img src="media/Dibujos/compressed/marco.png" class="carousel-marco" alt="" />
+      <div class="carousel-progress" id="historia-progress"></div>
+      <button class="carousel-btn prev" id="historia-prev" aria-label="Anterior">&#8592;</button>
+      <button class="carousel-btn next" id="historia-next" aria-label="Siguiente">&#8594;</button>
+    </div>
+
+    <div class="historia-text">
+      <p>Doce años despues, seguimos diciendo <br>
+        sí a la aventura.</p>
+    </div>
+  </section>
+
+  <!-- ================= LOGÍSTICA ================== -->
+  <section id="logistica" class="section-container">
+    <h2 class="script-font section-title">necesitas saber</h2>
+
+    <div id="donde">
+      <div class="location-card">
+        <div class="info-logistica">
+          <p><strong>Iglesia de Sta. Maria</strong></p>
+          <address>Pl. Sta. Maria, 6, 27800 <br>Vilalba, Lugo</address>
+          <p><strong>Ceremonia:</strong> 13:30h</p>
+        </div>
+        <a href="https://maps.app.goo.gl/agyaPaKLG1rdDJrT7" target="_blank" class="map-link">Ver en Google Maps →</a>
+      </div>
+
+      <div class="location-card">
+        <div class="info-logistica">
+          <p></p><strong>Finca Penas Corveiras</strong></p>
+          <address>Paseo do Conde, 2, 27800 <br>Vilalba, Lugo</address>
+          <p><strong>Llegada a la finca:</strong> 14:30h</p>
+        </div>
+        <a href="https://maps.app.goo.gl/NVurG2VGAjMiSwHY8" target="_blank" class="map-link">Ver en Google Maps →</a>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <article class="info-card">
+        <div class="image">
+          <img src="media/Dibujos/compressed/43.webp" alt="Dress Code" class="dressCode-image" style="width: 80px" />
+        </div>
+        <h3>Dress Code</h3>
+        <p>
+          Aunque vamos a celebrar la boda en el campo, queremos que
+          vengas vestido de forma elegante, acorde a una ocasion especial.
+          <br>Para las chicas, os recomendamos llevar tacon ancho o cuña, recordad que es una finca
         </p>
-        <p style="font-size: 90%; text-align: center;">Un dia para celebrar juntos, rodeados de quienes mas queremos.</p>
-        <p style="font-size: 90%; text-align: center;">Con ilusion, te invitamos a nuestra boda <br>18 de julio de 2026.</p>
-        <p style="font-size: 90%; text-align: center;"> Finca Penas Corveiras · Vilalba, Lugo</p>
-    </div>
+      </article>
 
-    <!-- ================ CUENTA ATRÁS ================ -->
-    <section id="countdown-section" class="section-container">
-      <h2 class="script-font">Falta poco</h2>
-      <div id="countdown">
-        <div class="countdown-item">
-          <span id="days">00</span>
-          <p>dias</p>
+      <article class="info-card">
+        <div class="image">
+          <img src="media/Dibujos/compressed/42.webp" alt="Parking" />
         </div>
-        <div class="countdown-item">
-          <span id="hours">00</span>
-          <p>Horas</p>
+        <h3>Parking</h3>
+        <a href="https://maps.app.goo.gl/gm2VbD4VBCzqnoLA8" target="_blank" class="map-link">Pincha aqui para saber
+          donde aparcar →</a>
+      </article>
+
+      <article class="info-card">
+        <div class="image">
+          <img src="media/Dibujos/compressed/cronograma9.webp" alt="Alojamiento" class="alojamiento-image"
+            style="width: 100px" />
         </div>
-        <div class="countdown-item">
-          <span id="minutes">00</span>
-          <p>Minutos</p>
-        </div>
-        <div class="countdown-item">
-          <span id="seconds">00</span>
-          <p>Segundos</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================ NUESTRA HISTORIA ============== -->
-    <section id="historia" class="section-container">
-      <h2 class="script-font section-title">Juntos</h2>
-
-      <div class="carousel-wrap" id="historia-carousel">
-    <div class="carousel-track" id="historia-track"></div>
-        <img src="media/Dibujos/compressed/marco.png" class="carousel-marco" alt="" />
-        <div class="carousel-progress" id="historia-progress"></div>
-        <button class="carousel-btn prev" id="historia-prev" aria-label="Anterior">&#8592;</button>
-        <button class="carousel-btn next" id="historia-next" aria-label="Siguiente">&#8594;</button>
+        <h3>Alojamiento</h3>
+        <p>Os recomendamos algunos hoteles:</p>
+        <ul class="hotel-list">
+          <li>
+            <a href="https://paradores.es/es/parador-de-vilalba" target="_blank" rel="noopener">Parador de Vilalba</a>
+          </li>
+          <li>
+            <a href="https://www.attica21hotels.com/hotel-spa-attica21-villalba/" target="_blank"
+              rel="noopener">Attica21 Villalba</a>
+          </li>
+          <li>
+            <a href="https://apartamentosodevezo.com/" target="_blank" rel="noopener">Apartamentos O Devezo</a>
+          </li>
+          <li>
+            <a href="https://hostalseijo.top/" target="_blank" rel="noopener">Hostal Seijo</a>
+          </li>
+        </ul>
+      </article>
     </div>
 
-      <div class="historia-text">
-        <p>Doce años despues, seguimos diciendo <br>
-            sí a la aventura.</p>
-      </div>
-    </section>
+    <div class="timeline-container">
+      <h2 class="script-font">El dia</h2>
+      <div class="timeline">
 
-    <!-- ================= LOGÍSTICA ================== -->
-    <section id="logistica" class="section-container">
-      <h2 class="script-font section-title">necesitas saber</h2>
-
-      <div id="donde">
-        <div class="location-card">
-          <div class="info-logistica">
-            <p><strong>Iglesia de Sta. Maria</strong></p>
-            <address>Pl. Sta. Maria, 6, 27800 <br>Vilalba, Lugo</address>
-            <p><strong>Ceremonia:</strong> 13:30h</p>
-          </div>
-          <a
-            href="https://maps.app.goo.gl/agyaPaKLG1rdDJrT7"
-            target="_blank"
-            class="map-link"
-            >Ver en Google Maps →</a
-          >
-        </div>
-
-        <div class="location-card">
-          <div class="info-logistica">
-            <p></p><strong>Finca Penas Corveiras</strong></p>
-            <address>Paseo do Conde, 2, 27800 <br>Vilalba, Lugo</address>
-            <p><strong>Llegada a la finca:</strong> 14:30h</p>
-          </div>
-          <a
-            href="https://maps.app.goo.gl/NVurG2VGAjMiSwHY8"
-            target="_blank"
-            class="map-link"
-            >Ver en Google Maps →</a
-          >
-        </div>
-      </div>
-
-      <div class="info-grid">
-        <article class="info-card">
-          <div class="image">
-            <img
-              src="media/Dibujos/compressed/43.webp"
-              alt="Dress Code"
-              class="dressCode-image"
-              style="width: 80px"
-            />
-          </div>
-          <h3>Dress Code</h3>
-          <p>
-            Aunque vamos a celebrar la boda en el campo, queremos que
-            vengas vestido de forma elegante, acorde a una ocasion especial.
-            <br>Para las chicas, os recomendamos llevar tacon ancho o cuña, recordad que es una finca
-          </p>
-        </article>
-
-        <article class="info-card">
-            <div class="image">
-                <img src="media/Dibujos/compressed/42.webp" alt="Parking" />
-            </div>
-            <h3>Parking</h3>
-            <a
-            href="https://maps.app.goo.gl/gm2VbD4VBCzqnoLA8"
-            target="_blank"
-            class="map-link"
-            >Pincha aqui para saber donde aparcar →</a
-          >
-        </article>
-
-        <article class="info-card">
-          <div class="image">
-            <img
-              src="media/Dibujos/compressed/cronograma9.webp"
-              alt="Alojamiento"
-              class="alojamiento-image"
-              style="width: 100px"
-            />
-          </div>
-          <h3>Alojamiento</h3>
-          <p>Os recomendamos algunos hoteles:</p>
-          <ul class="hotel-list">
-            <li>
-              <a
-                href="https://paradores.es/es/parador-de-vilalba"
-                target="_blank"
-                rel="noopener"
-                >Parador de Vilalba</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.attica21hotels.com/hotel-spa-attica21-villalba/"
-                target="_blank"
-                rel="noopener"
-                >Attica21 Villalba</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://apartamentosodevezo.com/"
-                target="_blank"
-                rel="noopener"
-                >Apartamentos O Devezo</a
-              >
-            </li>
-            <li>
-              <a href="https://hostalseijo.top/" target="_blank" rel="noopener"
-                >Hostal Seijo</a
-              >
-            </li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="timeline-container">
-        <h2 class="script-font">El dia</h2>
-        <div class="timeline">
-
-  <div class="timeline-event">
-    <div class="timeline-time">13:30</div>
-    <div class="timeline-content">
-      <img src="media/Dibujos/compressed/cronograma1.webp" class="timeline-icon" alt="" />
-    </div>
-  </div>
-
-  <div class="timeline-event">
-    <div class="timeline-time">14:30</div>
-    <div class="timeline-content">
-      <img src="media/Dibujos/compressed/cronograma3.webp" class="timeline-icon" alt="" />
-    </div>
-  </div>
-
-  <div class="timeline-event">
-    <div class="timeline-time">15:00</div>
-    <div class="timeline-content">
-      <img src="media/Dibujos/compressed/cronograma2.webp" class="timeline-icon" alt="" />
-    </div>
-  </div>
-
-  <div class="timeline-event">
-    <div class="timeline-time">15:45</div>
-    <div class="timeline-content">
-      <img src="media/Dibujos/compressed/cronograma4.webp" class="timeline-icon" alt="" />
-    </div>
-  </div>
-
-  <div class="timeline-event">
-    <div class="timeline-time">17:00</div>
-    <div class="timeline-content">
-      <img src="media/Dibujos/compressed/cronograma5.webp" class="timeline-icon" alt="" />
-    </div>
-  </div>
-
-  <div class="timeline-event">
-    <div class="timeline-time">20:00</div>
-    <div class="timeline-content">
-      <img src="media/Dibujos/compressed/6.webp" class="timeline-icon" alt="" />
-    </div>
-  </div>
-
-  <div class="timeline-event">
-    <div class="timeline-time">21:30</div>
-    <div class="timeline-content">
-      <img src="media/Dibujos/compressed/cronograma6.webp" class="timeline-icon" alt="" />
-    </div>
-  </div>
-
-  <div class="timeline-event">
-    <div class="timeline-time">21:45</div>
-    <div class="timeline-content">
-      <img src="media/Dibujos/compressed/cronograma7.webp" class="timeline-icon" alt="" />
-    </div>
-  </div>
-
-  <div class="timeline-event">
-    <div class="timeline-time">23:00</div>
-    <div class="timeline-content">
-      <img src="media/Dibujos/compressed/cronograma8.webp" class="timeline-icon" alt="" />
-    </div>
-  </div>
-
-  <div class="timeline-event">
-    <div class="timeline-time">01:00</div>
-    <div class="timeline-content">
-      <img src="media/Dibujos/compressed/cronograma9.webp" class="timeline-icon" alt="" />
-    </div>
-  </div>
-
-</div>
-      </div>
-    </section>
-
-    <!-- ================= MÚSICA ==================== -->
-    <section id="musica" class="section-container">
-        <h2 class="script-font section-title">Playlist</h2>
-      <div class="spotify-card">
-        <div class="sp-cover">
-          <a href="https://open.spotify.com/playlist/0d3BYbLwqnk7Fgi94kTDsk?si=342e093d6b4e4ce4" target="_blank">
-            <img src="media/Imagenes/compressed/foto-24.webp" alt="Playlist Paula & Pablo" />
-          </a>
-          <div class="sp-cover-label">
-            <div class="sp-dot"></div>
-            Playlist oficial
+        <div class="timeline-event">
+          <div class="timeline-time">13:30</div>
+          <div class="timeline-content">
+            <img src="media/Dibujos/compressed/cronograma1.webp" class="timeline-icon" alt="" />
           </div>
         </div>
-        <div class="sp-body">
-          <div class="sp-info">
-            <p class="sp-title">¿Nos ayudas con la musica?</p>
-            <p class="sp-sub">Añade tus canciones favoritas</p>
+
+        <div class="timeline-event">
+          <div class="timeline-time">14:30</div>
+          <div class="timeline-content">
+            <img src="media/Dibujos/compressed/cronograma3.webp" class="timeline-icon" alt="" />
           </div>
-          <a
-            href="https://open.spotify.com/playlist/0d3BYbLwqnk7Fgi94kTDsk?si=342e093d6b4e4ce4"
-            target="_blank"
-            class="sp-btn"
-          >
-            <span class="sp-icon">▶</span> Abrir
-          </a>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-time">15:00</div>
+          <div class="timeline-content">
+            <img src="media/Dibujos/compressed/cronograma2.webp" class="timeline-icon" alt="" />
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-time">15:45</div>
+          <div class="timeline-content">
+            <img src="media/Dibujos/compressed/cronograma4.webp" class="timeline-icon" alt="" />
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-time">17:00</div>
+          <div class="timeline-content">
+            <img src="media/Dibujos/compressed/cronograma5.webp" class="timeline-icon" alt="" />
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-time">20:00</div>
+          <div class="timeline-content">
+            <img src="media/Dibujos/compressed/6.webp" class="timeline-icon" alt="" />
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-time">21:30</div>
+          <div class="timeline-content">
+            <img src="media/Dibujos/compressed/cronograma6.webp" class="timeline-icon" alt="" />
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-time">21:45</div>
+          <div class="timeline-content">
+            <img src="media/Dibujos/compressed/cronograma7.webp" class="timeline-icon" alt="" />
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-time">23:00</div>
+          <div class="timeline-content">
+            <img src="media/Dibujos/compressed/cronograma8.webp" class="timeline-icon" alt="" />
+          </div>
+        </div>
+
+        <div class="timeline-event">
+          <div class="timeline-time">01:00</div>
+          <div class="timeline-content">
+            <img src="media/Dibujos/compressed/cronograma9.webp" class="timeline-icon" alt="" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MÚSICA ==================== -->
+  <section id="musica" class="section-container">
+    <h2 class="script-font section-title">Playlist</h2>
+    <div class="spotify-card">
+      <div class="sp-cover">
+        <a href="https://open.spotify.com/playlist/0d3BYbLwqnk7Fgi94kTDsk?si=_LtgEROXTeWUknHgT_Y0vQ&pt=fc05cb47300876ef12a259f2d8cb6c97&pi=FS0XC8MbSGCeA"
+          target="_blank">
+          <img src="media/Imagenes/compressed/foto-24.webp" alt="Playlist Paula & Pablo" />
+        </a>
+        <div class="sp-cover-label">
+          <div class="sp-dot"></div>
+          Playlist oficial
         </div>
       </div>
-    </section>
+      <div class="sp-body">
+        <div class="sp-info">
+          <p class="sp-title">¿Nos ayudas con la musica?</p>
+          <p class="sp-sub">Añade tus canciones favoritas</p>
+        </div>
+        <a href="https://open.spotify.com/playlist/0d3BYbLwqnk7Fgi94kTDsk?si=_LtgEROXTeWUknHgT_Y0vQ&pt=fc05cb47300876ef12a259f2d8cb6c97&pi=FS0XC8MbSGCeA"
+          target="_blank" class="sp-btn">
+          <span class="sp-icon">▶</span> Abrir
+        </a>
+      </div>
+    </div>
+  </section>
 
-<!-- ================= REGALO ==================== -->
-<section id="regalo" class="section-container">
+  <!-- ================= REGALO ==================== -->
+  <section id="regalo" class="section-container">
     <h2 class="script-font" style="margin-bottom: 20px;">Regalo</h2>
-  <p>Despues de este dia tan especial, comenzaremos una nueva aventura</p>
-  <p>¿Nos ayudas a empezar con buen pie?</p>
+    <p>Despues de este dia tan especial, comenzaremos una nueva aventura</p>
+    <p>¿Nos ayudas a empezar con buen pie?</p>
 
-  <div class="cuenta-card">
-    <p class="cuenta-label">Numero de cuenta</p>
-    <p class="cuenta-numero">ES33 3058 0990 2527 6357 3607</p>
-    <button class="cuenta-copiar" id="copiar-cuenta">Copiar numero</button>
-    <p class="cuenta-confirmacion hidden" id="cuenta-confirmacion">Copiado</p>
-  </div>
-</section>
+    <div class="cuenta-card">
+      <p class="cuenta-label">Numero de cuenta</p>
+      <p class="cuenta-numero">ES33 3058 0990 2527 6357 3607</p>
+      <button class="cuenta-copiar" id="copiar-cuenta">Copiar numero</button>
+      <p class="cuenta-confirmacion hidden" id="cuenta-confirmacion">Copiado</p>
+    </div>
+  </section>
 
-    <!-- ================= RSVP ====================== -->
-    <section id="rsvp" class="section-container rsvp-section">
-      <h2 class="script-font">Asistencia</h2>
-      <p class="rsvp-subtitle">
-        Por favor, 
-        <strong><span style="font-size: 1.3em">confirma </span> antes del
+  <!-- ================= RSVP ====================== -->
+  <section id="rsvp" class="section-container rsvp-section">
+    <h2 class="script-font">Asistencia</h2>
+    <p class="rsvp-subtitle">
+      Por favor,
+      <strong><span style="font-size: 1.3em">confirma </span> antes del
         <strong><span style="font-size: 1.3em"><br>15 de junio</span>.</strong>
-      </p>
+    </p>
 
-      <form action="https://formspree.io/f/xqeyapyj" method="POST">
-        <div class="form-field">
-          <input
-            type="text"
-            name="Invitado"
-            id="name"
-            required
-            pattern="^[a-zA-ZÀ-ÿ\s]{3,60}$"
-            placeholder=" "
-          />
-          <label for="name">Nombre y apellidos</label>
+    <form action="https://formspree.io/f/xqeyapyj" method="POST">
+      <div class="form-field">
+        <input type="text" name="Invitado" id="name" required pattern="^[a-zA-ZÀ-ÿ\s]{3,60}$" placeholder=" " />
+        <label for="name">Nombre y apellidos</label>
+      </div>
+
+      <fieldset class="radio-fieldset radio-modern">
+        <legend>¿Podras acompañarnos?</legend>
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="Asistencia" value="Confirmado" required hidden />
+            Si, alli estare
+          </label>
+          <label class="option">
+            <input type="radio" name="Asistencia" value="No_Asiste" hidden />
+            No puedo ir
+          </label>
         </div>
+      </fieldset>
 
-        <fieldset class="radio-fieldset radio-modern">
-          <legend>¿Podras acompañarnos?</legend>
-          <div class="options">
-            <label class="option">
-              <input
-                type="radio"
-                name="Asistencia"
-                value="Confirmado"
-                required
-                hidden
-              />
-              Si, alli estare
-            </label>
-            <label class="option">
-              <input type="radio" name="Asistencia" value="No_Asiste" hidden />
-              No puedo ir
-            </label>
-          </div>
-        </fieldset>
-
-        <div class="slider-field">
-          <span class="slider-label">Acompañantes</span>
-          <div class="slider-wrap">
-            <input
-              type="range"
-              id="plus-one"
-              name="Acompañantes"
-              min="0"
-              max="3"
-              value="0"
-              step="1"
-            />
-            <span class="slider-value" id="plus-one-value">0</span>
-          </div>
+      <div class="slider-field">
+        <span class="slider-label">Acompañantes</span>
+        <div class="slider-wrap">
+          <input type="range" id="plus-one" name="Acompañantes" min="0" max="3" value="0" step="1" />
+          <span class="slider-value" id="plus-one-value">0</span>
         </div>
-        <div id="menu-dinamico"></div>
+      </div>
+      <div id="menu-dinamico"></div>
 
-        <div class="form-field">
-          <textarea
-            name="Alergias_Detalle"
-            id="alergias"
-            rows="2"
-            maxlength="200"
-            placeholder=" "
-          ></textarea>
-          <label for="alergias">Alergias o notas importantes</label>
-        </div>
-        <button type="submit" class="submit-modern">Enviar confirmacion</button>
-      </form>
-    </section>
+      <div class="form-field">
+        <textarea name="Alergias_Detalle" id="alergias" rows="2" maxlength="200" placeholder=" "></textarea>
+        <label for="alergias">Alergias o notas importantes</label>
+      </div>
+      <button type="submit" class="submit-modern">Enviar confirmacion</button>
+    </form>
+  </section>
 
-    <!-- =================== FOOTER ================== -->
-<footer class="footer-section">
-<p class="footer-text"><strong>¡Te esperamos!</strong></p>
-  <img style="margin-top:30px" src="media/Dibujos/compressed/5.webp" alt="Paula & Pablo" class="footer-logo" />
-</footer>
+  <!-- =================== FOOTER ================== -->
+  <footer class="footer-section">
+    <p class="footer-text"><strong>¡Te esperamos!</strong></p>
+    <img style="margin-top:30px" src="media/Dibujos/compressed/5.webp" alt="Paula & Pablo" class="footer-logo" />
+  </footer>
 
-    <script src="js/main.js" type="module"></script>
-  </body>
-  <audio id="musica-fondo" loop>
-    <source src="media/cancion.mp3" type="audio/mpeg" />
+  <script src="js/main.js" type="module"></script>
+</body>
+<audio id="musica-fondo" loop>
+  <source src="media/cancion.mp3" type="audio/mpeg" />
 </audio>
 
 <button id="vinyl-btn" aria-label="Reproducir musica" title="Quando, Quando, Quando">
-    <div class="vinyl-disc"></div>
-    <div class="vinyl-label"></div>
-    <div class="vinyl-hole"></div>
-    <div class="vinyl-shine"></div>
-    <div class="vinyl-overlay" id="vinyl-icon">▶</div>
+  <div class="vinyl-disc"></div>
+  <div class="vinyl-label"></div>
+  <div class="vinyl-hole"></div>
+  <div class="vinyl-shine"></div>
+  <div class="vinyl-overlay" id="vinyl-icon">▶</div>
 </button>
+
 </html>
